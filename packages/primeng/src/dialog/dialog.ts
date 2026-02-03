@@ -30,7 +30,7 @@ import { blockBodyScroll, DomHandler, unblockBodyScroll } from 'primeng/dom';
 import { FocusTrap } from 'primeng/focustrap';
 import { MotionModule } from 'primeng/motion';
 import { Nullable, VoidListener } from 'primeng/ts-helpers';
-import { DialogPassThrough } from 'primeng/types/dialog';
+import { DialogPassThrough, DialogPosition } from 'primeng/types/dialog';
 import { ZIndexUtils } from 'primeng/utils';
 import { DialogStyle } from './style/dialogstyle';
 
@@ -53,8 +53,8 @@ const DIALOG_INSTANCE = new InjectionToken<Dialog>('DIALOG_INSTANCE');
                 [pBind]="ptm('mask')"
                 [pMotion]="maskVisible"
                 [pMotionAppear]="true"
-                [pMotionEnterActiveClass]="modal() ? 'p-overlay-mask-enter-active' : ''"
-                [pMotionLeaveActiveClass]="modal() ? 'p-overlay-mask-leave-active' : ''"
+                [pMotionEnterActiveClass]="maskEnterActiveClass()"
+                [pMotionLeaveActiveClass]="maskLeaveActiveClass()"
                 [pMotionOptions]="computedMaskMotionOptions()"
                 (pMotionOnAfterLeave)="onMaskAfterLeave()"
                 [attr.data-p-scrollblocker-active]="modal() || blockScroll()"
@@ -212,7 +212,7 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
      * Style of the content section.
      * @group Props
      */
-    contentStyle = input<any>();
+    contentStyle = input<{ [klass: string]: any } | null>();
     /**
      * Style class of the content.
      * @group Props
@@ -247,7 +247,7 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
      * Object literal to define widths per screen size.
      * @group Props
      */
-    breakpoints = input<any>();
+    breakpoints = input<Record<string, string>>();
     /**
      * Style class of the component.
      * @group Props
@@ -314,12 +314,6 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
      */
     focusTrap = input(true, { transform: booleanAttribute });
     /**
-     * Transition options of the animation.
-     * @deprecated since v21.0.0. Use `motionOptions` instead.
-     * @group Props
-     */
-    transitionOptions = input<string>('150ms cubic-bezier(0, 0, 0.2, 1)');
-    /**
      * The motion options for the mask.
      * @group Props
      */
@@ -331,6 +325,10 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
             ...this.maskMotionOptions()
         };
     });
+
+    maskEnterActiveClass = computed(() => (this.modal() ? 'p-overlay-mask-enter-active' : ''));
+
+    maskLeaveActiveClass = computed(() => (this.modal() ? 'p-overlay-mask-leave-active' : ''));
     /**
      * The motion options.
      * @group Props
@@ -395,12 +393,12 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
      * Inline style of the component.
      * @group Props
      */
-    style = input<any>();
+    style = input<{ [klass: string]: any } | null>();
     /**
-     * Position of the dialog.
+     * Position of the dialog, options are "center", "top", "bottom", "left", "right", "topleft", "topright", "bottomleft" or "bottomright".
      * @group Props
      */
-    position = input<'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright'>();
+    position = input<DialogPosition>();
     /**
      * Role attribute of html element.
      * @group Emits
@@ -411,7 +409,7 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
      * @defaultValue 'self'
      * @group Props
      */
-    appendTo = input<HTMLElement | ElementRef | TemplateRef<any> | 'self' | 'body' | null | undefined | any>(undefined);
+    appendTo = input<HTMLElement | ElementRef | TemplateRef<any> | 'self' | 'body' | null | undefined>(undefined);
     /**
      * Callback to invoke when dialog is shown.
      * @group Emits
@@ -444,7 +442,7 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
      * Callback to invoke when dialog maximized or unmaximized.
      * @group Emits
      */
-    onMaximize = output<any>();
+    onMaximize = output<{ maximized: boolean | undefined }>();
 
     headerViewChild = viewChild<ElementRef>('titlebar');
 
@@ -544,13 +542,11 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
 
     id: string = uuid('pn_id_');
 
-    _style: any = {};
+    _style: Record<string, string> = {};
 
-    originalStyle: any;
+    originalStyle: Record<string, string> | undefined;
 
-    transformOptions: any = 'scale(0.7)';
-
-    styleElement: any;
+    styleElement: HTMLStyleElement | null = null;
 
     _componentStyle = inject(DialogStyle);
 
@@ -567,17 +563,6 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
 
     private overlayService: OverlayService = inject(OverlayService);
 
-    get maskClass() {
-        const positions = ['left', 'right', 'top', 'topleft', 'topright', 'bottom', 'bottomleft', 'bottomright'];
-        const pos = positions.find((item) => item === this.position());
-
-        return {
-            'p-dialog-mask': true,
-            'p-overlay-mask': this.modal() || this.dismissableMask(),
-            [`p-dialog-${pos}`]: pos
-        };
-    }
-
     onInit() {
         if (this.breakpoints()) {
             this.createStyle();
@@ -588,33 +573,11 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
         return this.header() !== null ? uuid('pn_id_') + '_header' : null;
     }
 
-    parseDurationToMilliseconds(durationString: string): number | undefined {
-        const transitionTimeRegex = /([\d\.]+)(ms|s)\b/g;
-        let totalMilliseconds = 0;
-        let match;
-        while ((match = transitionTimeRegex.exec(durationString)) !== null) {
-            const value = parseFloat(match[1]);
-            const unit = match[2];
-            if (unit === 'ms') {
-                totalMilliseconds += value;
-            } else if (unit === 's') {
-                totalMilliseconds += value * 1000;
-            }
-        }
-        if (totalMilliseconds === 0) {
-            return undefined;
-        }
-        return totalMilliseconds;
-    }
-
     _focus(focusParentElement?: HTMLElement): boolean {
         if (focusParentElement) {
-            const timeoutDuration = this.parseDurationToMilliseconds(this.transitionOptions());
             let _focusableElements = DomHandler.getFocusableElements(focusParentElement);
             if (_focusableElements && _focusableElements.length > 0) {
-                this.zone.runOutsideAngular(() => {
-                    setTimeout(() => _focusableElements[0].focus(), timeoutDuration || 5);
-                });
+                _focusableElements[0].focus();
                 return true;
             }
         }
@@ -644,8 +607,8 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
 
     enableModality() {
         if (this.closable() && this.dismissableMask()) {
-            this.maskClickListener = this.renderer.listen(this.wrapper, 'mousedown', (event: any) => {
-                if (this.wrapper && this.wrapper.isSameNode(event.target)) {
+            this.maskClickListener = this.renderer.listen(this.wrapper, 'mousedown', (event: MouseEvent) => {
+                if (this.wrapper && this.wrapper.isSameNode(event.target as Node)) {
                     this.close(event);
                 }
             });
@@ -708,23 +671,23 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
     createStyle() {
         if (isPlatformBrowser(this.platformId)) {
             if (!this.styleElement && !this.$unstyled()) {
-                this.styleElement = this.renderer.createElement('style');
-                this.styleElement.type = 'text/css';
-                setAttribute(this.styleElement, 'nonce', this.config?.csp()?.nonce);
-                this.renderer.appendChild(this.document.head, this.styleElement);
+                const styleElement = this.renderer.createElement('style') as HTMLStyleElement;
+                setAttribute(styleElement, 'nonce', this.config?.csp()?.nonce);
+                this.renderer.appendChild(this.document.head, styleElement);
                 let innerHTML = '';
-                for (let breakpoint in this.breakpoints) {
+                for (let breakpoint in this.breakpoints()) {
                     innerHTML += `
                         @media screen and (max-width: ${breakpoint}) {
                             .p-dialog[${this.id}]:not(.p-dialog-maximized) {
-                                width: ${this.breakpoints[breakpoint]} !important;
+                                width: ${this.breakpoints()![breakpoint]} !important;
                             }
                         }
                     `;
                 }
 
-                this.renderer.setProperty(this.styleElement, 'innerHTML', innerHTML);
-                setAttribute(this.styleElement, 'nonce', this.config?.csp()?.nonce);
+                this.renderer.setProperty(styleElement, 'innerHTML', innerHTML);
+                setAttribute(styleElement, 'nonce', this.config?.csp()?.nonce);
+                this.styleElement = styleElement;
             }
         }
     }
@@ -943,9 +906,9 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
     }
 
     bindDocumentEscapeListener() {
-        const documentTarget: any = this.el ? this.el.nativeElement.ownerDocument : 'document';
+        const documentTarget = this.el ? this.el.nativeElement.ownerDocument : this.document;
 
-        this.documentEscapeListener = this.renderer.listen(documentTarget, 'keydown', (event) => {
+        this.documentEscapeListener = this.renderer.listen(documentTarget, 'keydown', (event: KeyboardEvent) => {
             if (event.key == 'Escape') {
                 const container = this.container();
                 if (!container) {
@@ -1017,7 +980,6 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
         }
 
         this.onHide.emit({});
-        this.cd.markForCheck();
     }
 
     onMaskAfterLeave() {
