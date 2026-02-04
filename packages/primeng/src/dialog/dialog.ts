@@ -29,6 +29,7 @@ import { Button, ButtonProps } from 'primeng/button';
 import { blockBodyScroll, DomHandler, unblockBodyScroll } from 'primeng/dom';
 import { FocusTrap } from 'primeng/focustrap';
 import { MotionModule } from 'primeng/motion';
+import type { AppendTo } from 'primeng/types/shared';
 import { Nullable, VoidListener } from 'primeng/ts-helpers';
 import { DialogPassThrough, DialogPosition } from 'primeng/types/dialog';
 import { ZIndexUtils } from 'primeng/utils';
@@ -409,7 +410,7 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
      * @defaultValue 'self'
      * @group Props
      */
-    appendTo = input<HTMLElement | ElementRef | TemplateRef<any> | 'self' | 'body' | null | undefined>(undefined);
+    appendTo = input<AppendTo>(undefined);
     /**
      * Callback to invoke when dialog is shown.
      * @group Emits
