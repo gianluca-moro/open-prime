@@ -95,9 +95,9 @@ export const AUTOCOMPLETE_VALUE_ACCESSOR = {
                 [attr.size]="inputSize()"
                 [attr.maxlength]="maxlength()"
                 [attr.tabindex]="$tabindex()"
-                [attr.required]="required() ? '' : undefined"
-                [attr.readonly]="readonly() ? '' : undefined"
-                [attr.disabled]="$disabled() ? '' : undefined"
+                [attr.required]="$requiredAttr()"
+                [attr.readonly]="$readonlyAttr()"
+                [attr.disabled]="$disabledAttr()"
                 [attr.aria-label]="ariaLabel()"
                 [attr.aria-labelledby]="ariaLabelledBy()"
                 [attr.aria-required]="required()"
@@ -144,7 +144,7 @@ export const AUTOCOMPLETE_VALUE_ACCESSOR = {
                         #token
                         [pBind]="ptm('chipItem')"
                         [class]="cx('chipItem', { i })"
-                        [attr.id]="$id() + '_multiple_option_' + i"
+                        [attr.id]="getMultipleOptionId(i)"
                         role="option"
                         [attr.aria-label]="getOptionLabel(option)"
                         [attr.aria-setsize]="modelValue().length"
@@ -191,9 +191,9 @@ export const AUTOCOMPLETE_VALUE_ACCESSOR = {
                         [attr.placeholder]="getMultiplePlaceholder()"
                         aria-autocomplete="list"
                         [attr.tabindex]="$tabindex()"
-                        [attr.required]="required() ? '' : undefined"
-                        [attr.readonly]="readonly() ? '' : undefined"
-                        [attr.disabled]="$disabled() ? '' : undefined"
+                        [attr.required]="$requiredAttr()"
+                        [attr.readonly]="$readonlyAttr()"
+                        [attr.disabled]="$disabledAttr()"
                         [attr.aria-label]="ariaLabel()"
                         [attr.aria-labelledby]="ariaLabelledBy()"
                         [attr.aria-required]="required()"
@@ -282,10 +282,10 @@ export const AUTOCOMPLETE_VALUE_ACCESSOR = {
                     </div>
 
                     <ng-template #buildInItems let-items let-scrollerOptions="options">
-                        <ul #items [pBind]="ptm('list')" [class]="cn(cx('list'), scrollerOptions.contentStyleClass)" [style]="scrollerOptions.contentStyle" role="listbox" [attr.id]="$id() + '_list'" [attr.aria-label]="listLabel">
+                        <ul #items [pBind]="ptm('list')" [class]="cn(cx('list'), scrollerOptions.contentStyleClass)" [style]="scrollerOptions.contentStyle" role="listbox" [attr.id]="$listId()" [attr.aria-label]="listLabel">
                             @for (option of items; track getOptionValue(option); let i = $index) {
                                 @if (isOptionGroup(option)) {
-                                    <li [pBind]="ptm('optionGroup')" [attr.id]="$id() + '_' + getOptionIndex(i, scrollerOptions)" [class]="cx('optionGroup')" [style]="getItemStyle(scrollerOptions)" role="option">
+                                    <li [pBind]="ptm('optionGroup')" [attr.id]="getOptionElementId(i, scrollerOptions)" [class]="cx('optionGroup')" [style]="getItemStyle(scrollerOptions)" role="option">
                                         @if (!groupTemplate()) {
                                             <span>{{ getOptionGroupLabel(option.optionGroup) }}</span>
                                         }
@@ -299,13 +299,13 @@ export const AUTOCOMPLETE_VALUE_ACCESSOR = {
                                         [pBind]="getPTOptions(option, scrollerOptions, i, 'option')"
                                         [style]="getItemStyle(scrollerOptions)"
                                         [class]="cx('option', { option, i, scrollerOptions })"
-                                        [attr.id]="$id() + '_' + getOptionIndex(i, scrollerOptions)"
+                                        [attr.id]="getOptionElementId(i, scrollerOptions)"
                                         role="option"
                                         [attr.aria-label]="getOptionLabel(option)"
                                         [attr.aria-selected]="isSelected(option)"
                                         [attr.data-p-selected]="isSelected(option)"
                                         [attr.aria-disabled]="isOptionDisabled(option)"
-                                        [attr.data-p-focused]="focusedOptionIndex() === getOptionIndex(i, scrollerOptions)"
+                                        [attr.data-p-focused]="isOptionFocused(i, scrollerOptions)"
                                         [attr.aria-setsize]="ariaSetSize"
                                         [attr.aria-posinset]="getAriaPosInset(getOptionIndex(i, scrollerOptions))"
                                         (click)="onOptionSelect($event, option)"
@@ -876,6 +876,14 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
 
     $tabindex = computed(() => (!this.$disabled() ? this.tabindex() : -1));
 
+    $requiredAttr = computed(() => (this.required() ? '' : undefined));
+
+    $readonlyAttr = computed(() => (this.readonly() ? '' : undefined));
+
+    $disabledAttr = computed(() => (this.$disabled() ? '' : undefined));
+
+    $listId = computed(() => this.$id() + '_list');
+
     get focusedMultipleOptionId() {
         return this.focusedMultipleOptionIndex() !== -1 ? `${this.$id()}_multiple_option_${this.focusedMultipleOptionIndex()}` : null;
     }
@@ -973,35 +981,35 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         }, []);
     }
 
-    isOptionGroup(option: any) {
+    isOptionGroup(option: any): boolean {
         return this.optionGroupLabel() && option.optionGroup && option.group;
     }
 
-    findFirstOptionIndex() {
+    findFirstOptionIndex(): number {
         return this.visibleOptions().findIndex((option) => this.isValidOption(option));
     }
 
-    findLastOptionIndex() {
+    findLastOptionIndex(): number {
         return findLastIndex(this.visibleOptions(), (option) => this.isValidOption(option));
     }
 
-    findFirstFocusedOptionIndex() {
+    findFirstFocusedOptionIndex(): number {
         const selectedIndex = this.findSelectedOptionIndex();
 
         return selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
     }
 
-    findLastFocusedOptionIndex() {
+    findLastFocusedOptionIndex(): number {
         const selectedIndex = this.findSelectedOptionIndex();
 
         return selectedIndex < 0 ? this.findLastOptionIndex() : selectedIndex;
     }
 
-    findSelectedOptionIndex() {
+    findSelectedOptionIndex(): number {
         return this.hasSelectedOption() ? this.visibleOptions().findIndex((option) => this.isValidSelectedOption(option)) : -1;
     }
 
-    findNextOptionIndex(index) {
+    findNextOptionIndex(index: number): number {
         const matchedOptionIndex =
             index < this.visibleOptions().length - 1
                 ? this.visibleOptions()
@@ -1012,44 +1020,44 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : index;
     }
 
-    findPrevOptionIndex(index) {
+    findPrevOptionIndex(index: number): number {
         const matchedOptionIndex = index > 0 ? findLastIndex(this.visibleOptions().slice(0, index), (option) => this.isValidOption(option)) : -1;
 
         return matchedOptionIndex > -1 ? matchedOptionIndex : index;
     }
 
-    isValidSelectedOption(option) {
+    isValidSelectedOption(option: any): boolean {
         return this.isValidOption(option) && this.isSelected(option);
     }
 
-    isValidOption(option) {
+    isValidOption(option: any): boolean {
         return option && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
     }
 
-    isOptionDisabled(option: any) {
+    isOptionDisabled(option: any): boolean {
         return this.optionDisabled() ? resolveFieldData(option, this.optionDisabled()) : false;
     }
 
-    isSelected(option: any) {
+    isSelected(option: any): boolean {
         if (this.multiple()) {
             return this.unique() ? (this.modelValue() as string[])?.some((model) => equals(model, option, this.equalityKey())) : false;
         }
         return equals(this.modelValue(), option, this.equalityKey());
     }
 
-    isOptionMatched(option: any, value: string) {
+    isOptionMatched(option: any, value: string): boolean {
         return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.searchLocale()) === value.toLocaleLowerCase(this.searchLocale());
     }
 
-    isInputClicked(event: MouseEvent) {
+    isInputClicked(event: MouseEvent): boolean {
         return event.target === this.inputEL()?.nativeElement;
     }
 
-    isDropdownClicked(event: MouseEvent) {
+    isDropdownClicked(event: MouseEvent): boolean {
         return this.dropdownButton()?.nativeElement ? event.target === this.dropdownButton()!.nativeElement || this.dropdownButton()!.nativeElement.contains(event.target) : false;
     }
 
-    equalityKey() {
+    equalityKey(): string | undefined {
         return this.optionValue() ? undefined : this.dataKey();
     }
 
@@ -1117,18 +1125,18 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         }
     }
 
-    onInputChange(event) {
+    onInputChange(event: Event) {
         this.updateInputWithForceSelection(event);
     }
 
-    onInputFocus(event) {
+    onInputFocus(event: FocusEvent) {
         if (this.$disabled()) {
             // For ScreenReaders
             return;
         }
 
         if (!this.dirty && this.completeOnFocus()) {
-            this.search(event, event.target.value, 'focus');
+            this.search(event, (event.target as HTMLInputElement).value, 'focus');
         }
         this.dirty = true;
         this.focused.set(true);
@@ -1138,7 +1146,7 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         this.onFocus.emit(event);
     }
 
-    onMultipleContainerFocus(event) {
+    onMultipleContainerFocus(event: FocusEvent) {
         if (this.$disabled()) {
             // For ScreenReaders
             return;
@@ -1147,12 +1155,12 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         this.focused.set(true);
     }
 
-    onMultipleContainerBlur(event) {
+    onMultipleContainerBlur(event: FocusEvent) {
         this.focusedMultipleOptionIndex.set(-1);
         this.focused.set(false);
     }
 
-    onMultipleContainerKeyDown(event) {
+    onMultipleContainerKeyDown(event: KeyboardEvent) {
         if (this.$disabled()) {
             event.preventDefault();
 
@@ -1177,20 +1185,20 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         }
     }
 
-    onInputBlur(event) {
+    onInputBlur(event: FocusEvent) {
         this.dirty = false;
         this.focused.set(false);
         this.focusedOptionIndex.set(-1);
 
         if (this.addOnBlur() && this.multiple() && !this.typeahead()) {
-            const inputValue = (this.multiInputEl()?.nativeElement?.value || event.target.value || '').trim();
+            const inputValue = (this.multiInputEl()?.nativeElement?.value || (event.target as HTMLInputElement).value || '').trim();
             if (inputValue && !this.isSelected(inputValue)) {
                 this.updateModel([...(this.modelValue() || []), inputValue]);
                 this.onAdd.emit({ originalEvent: event, value: inputValue });
                 if (this.multiInputEl()?.nativeElement) {
                     this.multiInputEl()!.nativeElement.value = '';
                 } else {
-                    event.target.value = '';
+                    (event.target as HTMLInputElement).value = '';
                 }
             }
         }
@@ -1199,9 +1207,9 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         this.onBlur.emit(event);
     }
 
-    onInputPaste(event) {
+    onInputPaste(event: ClipboardEvent) {
         if (this.separator() && this.multiple() && !this.typeahead()) {
-            const pastedData = (event.clipboardData || (window as any)['clipboardData'])?.getData('Text');
+            const pastedData = event.clipboardData?.getData('Text');
             if (pastedData) {
                 const values = pastedData.split(this.separator()!);
                 const newValues = [...(this.modelValue() || [])];
@@ -1222,21 +1230,21 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
                     if (this.multiInputEl()?.nativeElement) {
                         this.multiInputEl()!.nativeElement.value = '';
                     } else {
-                        event.target.value = '';
+                        (event.target as HTMLInputElement).value = '';
                     }
                     event.preventDefault();
                 }
             }
         } else {
-            this.onKeyDown(event);
+            this.onKeyDown(event as any);
         }
     }
 
-    onInputKeyUp(event) {
+    onInputKeyUp(event: KeyboardEvent) {
         this.onKeyUp.emit(event);
     }
 
-    onKeyDown(event) {
+    onKeyDown(event: KeyboardEvent) {
         if (this.$disabled()) {
             event.preventDefault();
 
@@ -1307,18 +1315,18 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         }
     }
 
-    handleSeparatorKey(event) {
+    handleSeparatorKey(event: KeyboardEvent) {
         const separator = this.separator();
         if (separator && this.multiple() && !this.typeahead()) {
             if (separator === event.key || (typeof separator === 'string' && event.key === separator) || (separator instanceof RegExp && event.key.match(separator))) {
-                const inputValue = (this.multiInputEl()?.nativeElement?.value || event.target.value || '').trim();
+                const inputValue = (this.multiInputEl()?.nativeElement?.value || (event.target as HTMLInputElement).value || '').trim();
                 if (inputValue && !this.isSelected(inputValue)) {
                     this.updateModel([...(this.modelValue() || []), inputValue]);
                     this.onAdd.emit({ originalEvent: event, value: inputValue });
                     if (this.multiInputEl()?.nativeElement) {
                         this.multiInputEl()!.nativeElement.value = '';
                     } else {
-                        event.target.value = '';
+                        (event.target as HTMLInputElement).value = '';
                     }
                     event.preventDefault();
                 }
@@ -1326,7 +1334,7 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         }
     }
 
-    onArrowDownKey(event) {
+    onArrowDownKey(event: KeyboardEvent) {
         if (!this.overlayVisible()) {
             return;
         }
@@ -1339,7 +1347,7 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         event.stopPropagation();
     }
 
-    onArrowUpKey(event) {
+    onArrowUpKey(event: KeyboardEvent) {
         if (!this.overlayVisible()) {
             return;
         }
@@ -1361,8 +1369,8 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         }
     }
 
-    onArrowLeftKey(event) {
-        const target = event.currentTarget;
+    onArrowLeftKey(event: KeyboardEvent) {
+        const target = event.currentTarget as HTMLInputElement;
         this.focusedOptionIndex.set(-1);
         if (this.multiple()) {
             if (isEmpty(target.value) && this.hasSelectedOption()) {
@@ -1374,14 +1382,14 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         }
     }
 
-    onArrowRightKey(event) {
+    onArrowRightKey(event: KeyboardEvent) {
         this.focusedOptionIndex.set(-1);
 
         this.multiple() && event.stopPropagation(); // To prevent onArrowRightKeyOnMultiple method
     }
 
-    onHomeKey(event) {
-        const { currentTarget } = event;
+    onHomeKey(event: KeyboardEvent) {
+        const currentTarget = event.currentTarget as HTMLInputElement;
         const len = currentTarget.value.length;
 
         currentTarget.setSelectionRange(0, event.shiftKey ? len : 0);
@@ -1390,8 +1398,8 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         event.preventDefault();
     }
 
-    onEndKey(event) {
-        const { currentTarget } = event;
+    onEndKey(event: KeyboardEvent) {
+        const currentTarget = event.currentTarget as HTMLInputElement;
         const len = currentTarget.value.length;
 
         currentTarget.setSelectionRange(event.shiftKey ? 0 : len, len);
@@ -1400,20 +1408,20 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         event.preventDefault();
     }
 
-    onPageDownKey(event) {
+    onPageDownKey(event: KeyboardEvent) {
         this.scrollInView(this.visibleOptions().length - 1);
         event.preventDefault();
     }
 
-    onPageUpKey(event) {
+    onPageUpKey(event: KeyboardEvent) {
         this.scrollInView(0);
         event.preventDefault();
     }
 
-    onEnterKey(event) {
+    onEnterKey(event: KeyboardEvent) {
         if (!this.typeahead() && !this.forceSelection()) {
             if (this.multiple()) {
-                const inputValue = event.target.value?.trim();
+                const inputValue = (event.target as HTMLInputElement).value?.trim();
                 if (inputValue && !this.isSelected(inputValue)) {
                     this.updateModel([...(this.modelValue() || []), inputValue]);
                     this.onAdd.emit({ originalEvent: event, value: inputValue });
@@ -1434,12 +1442,12 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         event.preventDefault();
     }
 
-    onEscapeKey(event) {
+    onEscapeKey(event: KeyboardEvent) {
         this.overlayVisible() && this.hide(true);
         event.preventDefault();
     }
 
-    onTabKey(event) {
+    onTabKey(event: KeyboardEvent) {
         // If there's a focused option in the dropdown, select it
         if (this.focusedOptionIndex() !== -1) {
             this.onOptionSelect(event, this.visibleOptions()[this.focusedOptionIndex()]);
@@ -1475,7 +1483,7 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         this.overlayVisible() && this.hide();
     }
 
-    onBackspaceKey(event) {
+    onBackspaceKey(event: KeyboardEvent) {
         if (this.multiple()) {
             if (isNotEmpty(this.modelValue()) && !this.inputEL()?.nativeElement?.value) {
                 const removedValue = this.modelValue()[this.modelValue().length - 1];
@@ -1488,12 +1496,12 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         }
     }
 
-    onArrowLeftKeyOnMultiple(event) {
+    onArrowLeftKeyOnMultiple(event: KeyboardEvent) {
         const optionIndex = this.focusedMultipleOptionIndex() < 1 ? 0 : this.focusedMultipleOptionIndex() - 1;
         this.focusedMultipleOptionIndex.set(optionIndex);
     }
 
-    onArrowRightKeyOnMultiple(event) {
+    onArrowRightKeyOnMultiple(event: KeyboardEvent) {
         let optionIndex = this.focusedMultipleOptionIndex();
         optionIndex++;
 
@@ -1504,13 +1512,13 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         }
     }
 
-    onBackspaceKeyOnMultiple(event) {
+    onBackspaceKeyOnMultiple(event: KeyboardEvent) {
         if (this.focusedMultipleOptionIndex() !== -1) {
             this.removeOption(event, this.focusedMultipleOptionIndex());
         }
     }
 
-    onOptionSelect(event, option, isHide = true) {
+    onOptionSelect(event: Event | null, option: any, isHide = true) {
         if (this.multiple()) {
             this.inputEL()?.nativeElement && (this.inputEL()!.nativeElement.value = '');
 
@@ -1521,18 +1529,20 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
             this.updateModel(option);
         }
 
-        this.onSelect.emit({ originalEvent: event, value: option });
+        if (event) {
+            this.onSelect.emit({ originalEvent: event, value: option });
+        }
 
         isHide && this.hide(true);
     }
 
-    onOptionMouseEnter(event, index) {
+    onOptionMouseEnter(event: MouseEvent, index: number) {
         if (this.focusOnHover()) {
             this.changeFocusedOptionIndex(event, index);
         }
     }
 
-    search(event, query, source) {
+    search(event: Event, query: string, source: string) {
         //allow empty string but not undefined or null
         if (query === undefined || query === null) {
             return;
@@ -1546,7 +1556,7 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         this.completeMethod.emit({ originalEvent: event, query });
     }
 
-    removeOption(event, index) {
+    removeOption(event: Event, index: number) {
         event.stopPropagation();
 
         const removedOption = this.modelValue()[index];
@@ -1632,7 +1642,7 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         }
     }
 
-    changeFocusedOptionIndex(event, index) {
+    changeFocusedOptionIndex(event: Event, index: number) {
         if (this.focusedOptionIndex() !== index) {
             this.focusedOptionIndex.set(index);
             this.scrollInView();
@@ -1676,11 +1686,11 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         this.onClear.emit();
     }
 
-    hasSelectedOption() {
+    hasSelectedOption(): boolean {
         return isNotEmpty(this.modelValue());
     }
 
-    getAriaPosInset(index) {
+    getAriaPosInset(index: number): number {
         return (
             (this.optionGroupLabel()
                 ? index -
@@ -1701,7 +1711,7 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         return optionValue ? resolveFieldData(option, optionValue) : option && option.value != undefined ? option.value : option;
     }
 
-    getOptionIndex(index, scrollerOptions) {
+    getOptionIndex(index: number, scrollerOptions: any): number {
         return this.virtualScrollerDisabled ? index : scrollerOptions && scrollerOptions.getItemOptions(index)['index'];
     }
 
@@ -1754,11 +1764,11 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         return { $implicit: items, options: scrollerOptions };
     }
 
-    shouldShowEmptyMessage(items: any[]) {
+    shouldShowEmptyMessage(items: any[]): boolean {
         return !items || (items.length === 0 && this.showEmptyMessage());
     }
 
-    getItemStyle(scrollerOptions: any) {
+    getItemStyle(scrollerOptions: any): CSSProperties {
         return { height: scrollerOptions.itemSize + 'px' };
     }
 
@@ -1766,23 +1776,35 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         return !this.selectedItemTemplate() && this.getOptionLabel(option);
     }
 
-    getAriaControls() {
-        return this.overlayVisible() ? this.$id() + '_list' : null;
+    getMultipleOptionId(index: number): string {
+        return this.$id() + '_multiple_option_' + index;
     }
 
-    getAriaActiveDescendant() {
+    getOptionElementId(index: number, scrollerOptions: any): string {
+        return this.$id() + '_' + this.getOptionIndex(index, scrollerOptions);
+    }
+
+    isOptionFocused(index: number, scrollerOptions: any): boolean {
+        return this.focusedOptionIndex() === this.getOptionIndex(index, scrollerOptions);
+    }
+
+    getAriaControls(): string | null {
+        return this.overlayVisible() ? this.$listId() : null;
+    }
+
+    getAriaActiveDescendant(): string | null | undefined {
         return this.focused() ? this.focusedOptionId : undefined;
     }
 
-    getMultipleAriaActiveDescendant() {
+    getMultipleAriaActiveDescendant(): string | null | undefined {
         return this.focused() ? this.focusedMultipleOptionId : undefined;
     }
 
-    getMultiplePlaceholder() {
+    getMultiplePlaceholder(): string | null | undefined {
         return !this.$filled() ? this.placeholder() : null;
     }
 
-    getListContainerMaxHeight() {
+    getListContainerMaxHeight(): string {
         return this.virtualScroll() ? 'auto' : this.scrollHeight();
     }
 
