@@ -52,7 +52,7 @@ export class WAIARIADoc {
     };
 
     code2: Code = {
-        typescript: `<div class="fancy-checkbox">
+        html: `<div class="fancy-checkbox">
     @if (checked) {
         <i class="checked-icon"></i>
     }

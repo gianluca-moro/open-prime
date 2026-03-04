@@ -160,9 +160,16 @@ export class AppCode {
             }
         });
 
-        // Prism highlighting after render
+        // Prism highlighting - afterNextRender ensures browser-only execution
         afterNextRender(() => {
             this.highlightCode();
+
+            // Watch for code/lang changes after initial render
+            effect(() => {
+                this.resolvedCode();
+                this.lang();
+                setTimeout(() => this.highlightCode(), 0);
+            });
         });
     }
 

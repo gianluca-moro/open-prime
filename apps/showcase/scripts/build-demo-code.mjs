@@ -1258,6 +1258,11 @@ ${formattedTemplate}
 export class ${className}${implementsClause} {${classBody}}`;
 }
 
+// Directory name to route path mapping (when they differ)
+const DIR_TO_ROUTE = {
+    scroller: 'virtualscroller'
+};
+
 // Derive selector from filename
 // e.g., "table/filter-advanced-doc.ts" -> "table-filter-advanced-demo"
 // Directory name to route path mapping (when they differ)
