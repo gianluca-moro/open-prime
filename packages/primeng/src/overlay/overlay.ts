@@ -7,12 +7,12 @@ import { BaseComponent, PARENT_INSTANCE } from 'primeng/basecomponent';
 import { Bind } from 'primeng/bind';
 import { ConnectedOverlayScrollHandler } from 'primeng/dom';
 import { MotionModule } from 'primeng/motion';
-import type { AppendTo, CSSProperties } from 'primeng/types/shared';
 import { VoidListener } from 'primeng/ts-helpers';
 import { Subscription } from 'rxjs';
 import { ZIndexUtils } from 'primeng/utils';
 import { OverlayContentTemplateContext } from 'primeng/types/overlay';
 import { OverlayStyle } from './style/overlaystyle';
+import { AppendTo, CSSProperties } from '../types/shared/shared.types';
 
 const OVERLAY_INSTANCE = new InjectionToken<Overlay>('OVERLAY_INSTANCE');
 

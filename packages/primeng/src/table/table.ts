@@ -1,35 +1,8 @@
 import { isPlatformBrowser, NgTemplateOutlet } from '@angular/common';
-import {
-    booleanAttribute,
-    ChangeDetectionStrategy,
-    Component,
-    computed,
-    contentChild,
-    effect,
-    ElementRef,
-    inject,
-    input,
-    numberAttribute,
-    output,
-    TemplateRef,
-    untracked,
-    viewChild,
-    ViewEncapsulation
-} from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, contentChild, effect, ElementRef, inject, input, model, numberAttribute, output, TemplateRef, untracked, viewChild, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { isClickable, setAttribute } from '@primeuix/utils';
-import {
-    BlockableUI,
-    FilterMatchMode,
-    FilterMetadata,
-    FilterOperator,
-    FilterService,
-    LazyLoadMeta,
-    OverlayService,
-    ScrollerOptions,
-    SortMeta,
-    TableState
-} from 'primeng/api';
+import { BlockableUI, FilterMatchMode, FilterMetadata, FilterOperator, FilterService, LazyLoadMeta, OverlayService, ScrollerOptions, SortMeta, TableState } from 'primeng/api';
 import { BaseComponent, PARENT_INSTANCE } from 'primeng/basecomponent';
 import { Bind, BindModule } from 'primeng/bind';
 import { CheckboxChangeEvent } from 'primeng/checkbox';

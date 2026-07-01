@@ -31,6 +31,10 @@ import { Bind, BindModule } from 'primeng/bind';
 import { Chip } from 'primeng/chip';
 import type { AppendTo, CSSProperties } from 'primeng/types/shared';
 import { ConnectedOverlayScrollHandler } from 'primeng/dom';
+import { ChevronDown as ChevronDownIcon } from '@primeicons/angular/chevron-down';
+import { Spinner as SpinnerIcon } from '@primeicons/angular/spinner';
+import { TimesCircle as TimesCircleIcon } from '@primeicons/angular/times-circle';
+import { Times as TimesIcon } from '@primeicons/angular/times';
 import { InputText } from 'primeng/inputtext';
 import { Overlay } from 'primeng/overlay';
 import { Ripple } from 'primeng/ripple';
@@ -67,7 +71,7 @@ export const AUTOCOMPLETE_VALUE_ACCESSOR = {
 @Component({
     selector: 'p-autocomplete, p-auto-complete',
     standalone: true,
-    imports: [NgTemplateOutlet, Overlay, InputText, Ripple, Scroller, AutoFocus, Chip, SharedModule, BindModule],
+    imports: [NgTemplateOutlet, Overlay, InputText, Ripple, Scroller, AutoFocus, TimesCircleIcon, SpinnerIcon, ChevronDownIcon, Chip, SharedModule, TimesIcon, BindModule],
     template: `
         @if (!multiple()) {
             <input
@@ -1590,7 +1594,7 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
         }
     }
 
-    updateInputWithForceSelection(event: any) {
+    updateInputWithForceSelection(event: Event | null) {
         const input = this.inputEL()?.nativeElement;
         const inputCleared = !input?.value && isNotEmpty(this.modelValue());
 
@@ -1600,7 +1604,7 @@ export class AutoComplete extends BaseInput<AutoCompletePassThrough> {
 
         const _minLength = this.minQueryLength();
 
-        if (_minLength != null && !inputCleared && input.value.length < _minLength) {
+        if (!inputCleared && _minLength != null && input.value.length < _minLength) {
             return;
         }
 

@@ -554,8 +554,6 @@ export class Dialog extends BaseComponent<DialogPassThrough> {
 
     _componentStyle = inject(DialogStyle);
 
-    overlayService = inject(OverlayService);
-
     private zIndexForLayering?: number;
 
     get maximizeLabel(): string {
