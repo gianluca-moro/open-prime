@@ -68,7 +68,11 @@
                         "development": {
                             "optimization": false,
                             "extractLicenses": false,
-                            "sourceMap": false,
+                            "sourceMap": {
+                                "scripts": true,
+                                "vendor": true,
+                                "styles": true
+                            },
                             "namedChunks": false,
                             "fileReplacements": [
                                 {
