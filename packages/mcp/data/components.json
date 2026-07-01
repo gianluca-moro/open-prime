@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-04-03",
+  "generatedAt": "2026-07-01",
   "components": [
     {
       "name": "accordion",
@@ -7167,6 +7167,11 @@
             "description": "Background of root"
           },
           {
+            "token": "chip.focus.background",
+            "variable": "--p-chip-focus-background",
+            "description": "Focus background of root"
+          },
+          {
             "token": "chip.color",
             "variable": "--p-chip-color",
             "description": "Color of root"
@@ -7996,7 +8001,98 @@
             "description": "Class name of the footer element"
           }
         ],
-        "tokens": null
+        "tokens": [
+          {
+            "token": "commandmenu.background",
+            "variable": "--p-commandmenu-background",
+            "description": "Background of root"
+          },
+          {
+            "token": "commandmenu.border.color",
+            "variable": "--p-commandmenu-border-color",
+            "description": "Border color of root"
+          },
+          {
+            "token": "commandmenu.border.radius",
+            "variable": "--p-commandmenu-border-radius",
+            "description": "Border radius of root"
+          },
+          {
+            "token": "commandmenu.height",
+            "variable": "--p-commandmenu-height",
+            "description": "Height of root"
+          },
+          {
+            "token": "commandmenu.header.padding",
+            "variable": "--p-commandmenu-header-padding",
+            "description": "Padding of header"
+          },
+          {
+            "token": "commandmenu.header.background",
+            "variable": "--p-commandmenu-header-background",
+            "description": "Background of header"
+          },
+          {
+            "token": "commandmenu.header.border.color",
+            "variable": "--p-commandmenu-header-border-color",
+            "description": "Border color of header"
+          },
+          {
+            "token": "commandmenu.input.padding",
+            "variable": "--p-commandmenu-input-padding",
+            "description": "Padding of input"
+          },
+          {
+            "token": "commandmenu.input.font.size",
+            "variable": "--p-commandmenu-input-font-size",
+            "description": "Font size of input"
+          },
+          {
+            "token": "commandmenu.input.font.weight",
+            "variable": "--p-commandmenu-input-font-weight",
+            "description": "Font weight of input"
+          },
+          {
+            "token": "commandmenu.input.color",
+            "variable": "--p-commandmenu-input-color",
+            "description": "Color of input"
+          },
+          {
+            "token": "commandmenu.input.placeholder.color",
+            "variable": "--p-commandmenu-input-placeholder-color",
+            "description": "Placeholder color of input"
+          },
+          {
+            "token": "commandmenu.list.padding",
+            "variable": "--p-commandmenu-list-padding",
+            "description": "Padding of list"
+          },
+          {
+            "token": "commandmenu.empty.padding",
+            "variable": "--p-commandmenu-empty-padding",
+            "description": "Padding of empty"
+          },
+          {
+            "token": "commandmenu.empty.color",
+            "variable": "--p-commandmenu-empty-color",
+            "description": "Color of empty"
+          },
+          {
+            "token": "commandmenu.footer.padding",
+            "variable": "--p-commandmenu-footer-padding",
+            "description": "Padding of footer"
+          },
+          {
+            "token": "commandmenu.footer.background",
+            "variable": "--p-commandmenu-footer-background",
+            "description": "Background of footer"
+          },
+          {
+            "token": "commandmenu.footer.border.color",
+            "variable": "--p-commandmenu-footer-border-color",
+            "description": "Border color of footer"
+          }
+        ]
       }
     },
     {
@@ -9289,6 +9385,31 @@
             "token": "contextmenu.submenu.mobile.indent",
             "variable": "--p-contextmenu-submenu-mobile-indent",
             "description": "Mobile indent of submenu"
+          },
+          {
+            "token": "contextmenu.submenu.label.padding",
+            "variable": "--p-contextmenu-submenu-label-padding",
+            "description": "Padding of submenu label"
+          },
+          {
+            "token": "contextmenu.submenu.label.font.weight",
+            "variable": "--p-contextmenu-submenu-label-font-weight",
+            "description": "Font weight of submenu label"
+          },
+          {
+            "token": "contextmenu.submenu.label.font.size",
+            "variable": "--p-contextmenu-submenu-label-font-size",
+            "description": "Font size of submenu label"
+          },
+          {
+            "token": "contextmenu.submenu.label.background",
+            "variable": "--p-contextmenu-submenu-label-background",
+            "description": "Background of submenu label"
+          },
+          {
+            "token": "contextmenu.submenu.label.color",
+            "variable": "--p-contextmenu-submenu-label-color",
+            "description": "Color of submenu label"
           },
           {
             "token": "contextmenu.submenu.icon.size",
@@ -16844,7 +16965,178 @@
             "description": "Class name of the thumbnail item element"
           }
         ],
-        "tokens": null
+        "tokens": [
+          {
+            "token": "gallery.backdrop.background",
+            "variable": "--p-gallery-backdrop-background",
+            "description": "Background of backdrop"
+          },
+          {
+            "token": "gallery.header.padding",
+            "variable": "--p-gallery-header-padding",
+            "description": "Padding of header"
+          },
+          {
+            "token": "gallery.header.background",
+            "variable": "--p-gallery-header-background",
+            "description": "Background of header"
+          },
+          {
+            "token": "gallery.footer.padding",
+            "variable": "--p-gallery-footer-padding",
+            "description": "Padding of footer"
+          },
+          {
+            "token": "gallery.footer.background",
+            "variable": "--p-gallery-footer-background",
+            "description": "Background of footer"
+          },
+          {
+            "token": "gallery.footer.border.color",
+            "variable": "--p-gallery-footer-border-color",
+            "description": "Border color of footer"
+          },
+          {
+            "token": "gallery.item.transition.duration",
+            "variable": "--p-gallery-item-transition-duration",
+            "description": "Transition duration of item (transform and opacity)"
+          },
+          {
+            "token": "gallery.action.size",
+            "variable": "--p-gallery-action-size",
+            "description": "Size of action (shared by action / next / prev)"
+          },
+          {
+            "token": "gallery.action.border.radius",
+            "variable": "--p-gallery-action-border-radius",
+            "description": "Border radius of action"
+          },
+          {
+            "token": "gallery.action.color",
+            "variable": "--p-gallery-action-color",
+            "description": "Color of action"
+          },
+          {
+            "token": "gallery.action.hover.background",
+            "variable": "--p-gallery-action-hover-background",
+            "description": "Hover background of action"
+          },
+          {
+            "token": "gallery.action.hover.color",
+            "variable": "--p-gallery-action-hover-color",
+            "description": "Hover color of action"
+          },
+          {
+            "token": "gallery.action.disabled.opacity",
+            "variable": "--p-gallery-action-disabled-opacity",
+            "description": "Disabled opacity of action"
+          },
+          {
+            "token": "gallery.action.transition.duration",
+            "variable": "--p-gallery-action-transition-duration",
+            "description": "Transition duration of action"
+          },
+          {
+            "token": "gallery.action.icon.size",
+            "variable": "--p-gallery-action-icon-size",
+            "description": "Icon size of action"
+          },
+          {
+            "token": "gallery.navigation.background",
+            "variable": "--p-gallery-navigation-background",
+            "description": "Background of navigation (next / prev)"
+          },
+          {
+            "token": "gallery.navigation.size",
+            "variable": "--p-gallery-navigation-size",
+            "description": "Size of navigation"
+          },
+          {
+            "token": "gallery.navigation.border.radius",
+            "variable": "--p-gallery-navigation-border-radius",
+            "description": "Border radius of navigation"
+          },
+          {
+            "token": "gallery.navigation.color",
+            "variable": "--p-gallery-navigation-color",
+            "description": "Color of navigation"
+          },
+          {
+            "token": "gallery.navigation.hover.background",
+            "variable": "--p-gallery-navigation-hover-background",
+            "description": "Hover background of navigation"
+          },
+          {
+            "token": "gallery.navigation.hover.color",
+            "variable": "--p-gallery-navigation-hover-color",
+            "description": "Hover color of navigation"
+          },
+          {
+            "token": "gallery.navigation.offset",
+            "variable": "--p-gallery-navigation-offset",
+            "description": "Edge offset of navigation"
+          },
+          {
+            "token": "gallery.navigation.transition.duration",
+            "variable": "--p-gallery-navigation-transition-duration",
+            "description": "Transition duration of navigation"
+          },
+          {
+            "token": "gallery.navigation.icon.size",
+            "variable": "--p-gallery-navigation-icon-size",
+            "description": "Icon size of navigation"
+          },
+          {
+            "token": "gallery.thumbnail.size",
+            "variable": "--p-gallery-thumbnail-size",
+            "description": "Size of thumbnail item"
+          },
+          {
+            "token": "gallery.thumbnail.padding",
+            "variable": "--p-gallery-thumbnail-padding",
+            "description": "Padding of thumbnail item"
+          },
+          {
+            "token": "gallery.thumbnail.background",
+            "variable": "--p-gallery-thumbnail-background",
+            "description": "Background of thumbnail item"
+          },
+          {
+            "token": "gallery.thumbnail.border.radius",
+            "variable": "--p-gallery-thumbnail-border-radius",
+            "description": "Border radius of thumbnail item"
+          },
+          {
+            "token": "gallery.thumbnail.border.width",
+            "variable": "--p-gallery-thumbnail-border-width",
+            "description": "Border width of thumbnail item (outline width)"
+          },
+          {
+            "token": "gallery.thumbnail.hover.border.color",
+            "variable": "--p-gallery-thumbnail-hover-border-color",
+            "description": "Hover border color of thumbnail item"
+          },
+          {
+            "token": "gallery.thumbnail.active.border.color",
+            "variable": "--p-gallery-thumbnail-active-border-color",
+            "description": "Active border color of thumbnail item"
+          },
+          {
+            "token": "gallery.thumbnail.active.scale",
+            "variable": "--p-gallery-thumbnail-active-scale",
+            "description": "Active scale of thumbnail item"
+          },
+          {
+            "token": "gallery.thumbnail.transition.duration",
+            "variable": "--p-gallery-thumbnail-transition-duration",
+            "description": "Transition duration of thumbnail item"
+          },
+          {
+            "token": "gallery.thumbnail.content.padding",
+            "variable": "--p-gallery-thumbnail-content-padding",
+            "description": "Padding of thumbnail content"
+          }
+        ]
       }
     },
     {
@@ -17097,534 +17389,6 @@
             "token": "iftalabel.input.padding.bottom",
             "variable": "--p-iftalabel-input-padding-bottom",
             "description": "Padding bottom of input"
-          }
-        ]
-      }
-    },
-    {
-      "name": "image",
-      "title": "Angular Image Component",
-      "description": "Displays an image with preview and tranformation options.",
-      "sections": [
-        {
-          "id": "accessibility",
-          "label": "Accessibility",
-          "description": "Screen Reader The preview button is a native button element with an aria-label that refers to the aria.zoomImage property of the locale API by default. When preview is active, dialog role with aria-modal is applied to the overlay image container. Button controls use aria.rotateRight , aria.rotateLeft , aria.zoomIn , aria.zoomOut and aria.close from the locale API as aria-label . ButtonBar Keyboard Support When preview is activated, close button receives the initial focus. Key Function tab Moves focus through button bar. enter Activates the button. space Activates the button. esc Closes the image preview.",
-          "examples": null
-        },
-        {
-          "id": "basic",
-          "label": "Basic",
-          "description": "Image is used as the native img element and supports all properties that the native element has. For multiple image, see Galleria.",
-          "examples": {
-            "typescript": "import { Component } from '@angular/core';\nimport { ImageModule } from 'primeng/image';\n\n@Component({\n    template: `\n        <div class=\"flex justify-center\">\n            <p-image src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria10.jpg\" alt=\"Image\" width=\"250\" />\n        </div>\n    `,\n    standalone: true,\n    imports: [ImageModule]\n})\nexport class ImageBasicDemo {}"
-          }
-        },
-        {
-          "id": "preview",
-          "label": "Preview",
-          "description": "Preview mode displays a modal layer when the image is clicked that provides transformation options such as rotating and zooming.",
-          "examples": {
-            "typescript": "import { Component } from '@angular/core';\nimport { ImageModule } from 'primeng/image';\n\n@Component({\n    template: `\n        <div class=\"flex justify-center\">\n            <p-image src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria10.jpg\" alt=\"Image\" width=\"250\" [preview]=\"true\" />\n        </div>\n    `,\n    standalone: true,\n    imports: [ImageModule]\n})\nexport class ImagePreviewDemo {}"
-          }
-        },
-        {
-          "id": "previewimagesource",
-          "label": "previewimagesource-doc",
-          "description": "In case that you want to show different image on preview, you can set previewImageSrc attribute. It could come handy when wanted to use smaller image version at first and bigger one on preview.",
-          "examples": {
-            "typescript": "import { Component } from '@angular/core';\nimport { ImageModule } from 'primeng/image';\n\n@Component({\n    template: `\n        <div class=\"flex justify-center\">\n            <p-image src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg\" previewImageSrc=\"https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg\" alt=\"Image\" width=\"250\" [preview]=\"true\" />\n        </div>\n    `,\n    standalone: true,\n    imports: [ImageModule]\n})\nexport class ImagePreviewImageSourceDemo {}"
-          }
-        },
-        {
-          "id": "template",
-          "label": "Template",
-          "description": "An eye icon is displayed by default when the image is hovered in preview mode. Use the indicator template for custom content.",
-          "examples": {
-            "typescript": "import { Component } from '@angular/core';\nimport { ImageModule } from 'primeng/image';\n\n@Component({\n    template: `\n        <div class=\"flex justify-center\">\n            <p-image src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg\" [preview]=\"true\" alt=\"Image\" width=\"250\">\n                <ng-template #indicator>\n                    <i class=\"pi pi-search\"></i>\n                </ng-template>\n                <ng-template #image>\n                    <img src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg\" alt=\"image\" width=\"250\" />\n                </ng-template>\n                <ng-template #preview let-style=\"style\" let-previewCallback=\"previewCallback\">\n                    <img src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg\" alt=\"image\" [style]=\"style\" (click)=\"previewCallback()\" />\n                </ng-template>\n            </p-image>\n        </div>\n    `,\n    standalone: true,\n    imports: [ImageModule]\n})\nexport class ImageTemplateDemo {}"
-          }
-        }
-      ],
-      "api": {
-        "props": [
-          {
-            "name": "dt",
-            "type": "Object",
-            "default": "undefined",
-            "description": "Defines scoped design tokens of the component.",
-            "deprecated": ""
-          },
-          {
-            "name": "unstyled",
-            "type": "boolean",
-            "default": "undefined",
-            "description": "Indicates whether the component should be rendered without styles.",
-            "deprecated": ""
-          },
-          {
-            "name": "pt",
-            "type": "PassThrough<I, ImagePassThroughOptions<I>>",
-            "default": "undefined",
-            "description": "Used to pass attributes to DOM elements inside the component.",
-            "deprecated": ""
-          },
-          {
-            "name": "ptOptions",
-            "type": "PassThroughOptions",
-            "default": "undefined",
-            "description": "Used to configure passthrough(pt) options of the component.",
-            "deprecated": ""
-          },
-          {
-            "name": "imageClass",
-            "type": "string",
-            "default": "-",
-            "description": "Style class of the image element.",
-            "deprecated": ""
-          },
-          {
-            "name": "imageStyle",
-            "type": "Partial<CSSStyleDeclaration>",
-            "default": "-",
-            "description": "Inline style of the image element.",
-            "deprecated": ""
-          },
-          {
-            "name": "src",
-            "type": "string | SafeUrl",
-            "default": "-",
-            "description": "The source path for the main image.",
-            "deprecated": ""
-          },
-          {
-            "name": "srcSet",
-            "type": "string | SafeUrl",
-            "default": "-",
-            "description": "The srcset definition for the main image.",
-            "deprecated": ""
-          },
-          {
-            "name": "sizes",
-            "type": "string",
-            "default": "-",
-            "description": "The sizes definition for the main image.",
-            "deprecated": ""
-          },
-          {
-            "name": "previewImageSrc",
-            "type": "string | SafeUrl",
-            "default": "-",
-            "description": "The source path for the preview image.",
-            "deprecated": ""
-          },
-          {
-            "name": "previewImageSrcSet",
-            "type": "string | SafeUrl",
-            "default": "-",
-            "description": "The srcset definition for the preview image.",
-            "deprecated": ""
-          },
-          {
-            "name": "previewImageSizes",
-            "type": "string",
-            "default": "-",
-            "description": "The sizes definition for the preview image.",
-            "deprecated": ""
-          },
-          {
-            "name": "alt",
-            "type": "string",
-            "default": "-",
-            "description": "Attribute of the preview image element.",
-            "deprecated": ""
-          },
-          {
-            "name": "width",
-            "type": "string",
-            "default": "-",
-            "description": "Attribute of the image element.",
-            "deprecated": ""
-          },
-          {
-            "name": "height",
-            "type": "string",
-            "default": "-",
-            "description": "Attribute of the image element.",
-            "deprecated": ""
-          },
-          {
-            "name": "loading",
-            "type": "\"lazy\" | \"eager\"",
-            "default": "-",
-            "description": "Attribute of the image element.",
-            "deprecated": ""
-          },
-          {
-            "name": "preview",
-            "type": "boolean",
-            "default": "-",
-            "description": "Controls the preview functionality.",
-            "deprecated": ""
-          },
-          {
-            "name": "modalEnterAnimation",
-            "type": "string",
-            "default": "'p-modal-enter'",
-            "description": "Enter animation class name of modal.",
-            "deprecated": ""
-          },
-          {
-            "name": "modalLeaveAnimation",
-            "type": "string",
-            "default": "'p-modal-leave'",
-            "description": "Leave animation class name of modal.",
-            "deprecated": ""
-          },
-          {
-            "name": "appendTo",
-            "type": "HTMLElement | ElementRef | TemplateRef<any> | \"self\" | \"body\" | null | undefined",
-            "default": "'self'",
-            "description": "Target element to attach the overlay, valid values are \"body\" or a local ng-template variable of another element (note: use binding with brackets for template variables, e.g. [appendTo]=\"mydiv\" for a div element having #mydiv as variable name).",
-            "deprecated": ""
-          },
-          {
-            "name": "maskMotionOptions",
-            "type": "MotionOptions",
-            "default": "-",
-            "description": "The motion options for the mask.",
-            "deprecated": ""
-          },
-          {
-            "name": "motionOptions",
-            "type": "MotionOptions",
-            "default": "-",
-            "description": "The motion options.",
-            "deprecated": ""
-          }
-        ],
-        "templates": [
-          {
-            "name": "indicator",
-            "type": "TemplateRef<void>",
-            "description": "Custom indicator template."
-          },
-          {
-            "name": "rotaterighticon",
-            "type": "TemplateRef<void>",
-            "description": "Custom rotate right icon template."
-          },
-          {
-            "name": "rotatelefticon",
-            "type": "TemplateRef<void>",
-            "description": "Custom rotate left icon template."
-          },
-          {
-            "name": "zoomouticon",
-            "type": "TemplateRef<void>",
-            "description": "Custom zoom out icon template."
-          },
-          {
-            "name": "zoominicon",
-            "type": "TemplateRef<void>",
-            "description": "Custom zoom in icon template."
-          },
-          {
-            "name": "closeicon",
-            "type": "TemplateRef<void>",
-            "description": "Custom close icon template."
-          },
-          {
-            "name": "preview",
-            "type": "TemplateRef<ImagePreviewTemplateContext>",
-            "description": "Custom preview template."
-          },
-          {
-            "name": "image",
-            "type": "TemplateRef<ImageImageTemplateContext>",
-            "description": "Custom image template."
-          }
-        ],
-        "emits": [
-          {
-            "name": "onShow",
-            "parameters": [
-              {
-                "name": "value",
-                "type": "any"
-              }
-            ],
-            "description": "Triggered when the preview overlay is shown."
-          },
-          {
-            "name": "onHide",
-            "parameters": [
-              {
-                "name": "value",
-                "type": "any"
-              }
-            ],
-            "description": "Triggered when the preview overlay is hidden."
-          },
-          {
-            "name": "onImageError",
-            "parameters": [
-              {
-                "name": "event",
-                "type": "Event"
-              }
-            ],
-            "description": "This event is triggered if an error occurs while loading an image file."
-          }
-        ],
-        "methods": null,
-        "pt": [
-          {
-            "name": "root",
-            "type": "PassThroughOption<HTMLSpanElement, I>",
-            "description": "Used to pass attributes to the root's DOM element."
-          },
-          {
-            "name": "image",
-            "type": "PassThroughOption<HTMLImageElement, I>",
-            "description": "Used to pass attributes to the image's DOM element."
-          },
-          {
-            "name": "previewMask",
-            "type": "PassThroughOption<HTMLButtonElement, I>",
-            "description": "Used to pass attributes to the preview mask button's DOM element."
-          },
-          {
-            "name": "previewIcon",
-            "type": "PassThroughOption<SVGElement, I>",
-            "description": "Used to pass attributes to the preview icon's DOM element."
-          },
-          {
-            "name": "mask",
-            "type": "PassThroughOption<HTMLDivElement, I>",
-            "description": "Used to pass attributes to the mask's DOM element."
-          },
-          {
-            "name": "toolbar",
-            "type": "PassThroughOption<HTMLDivElement, I>",
-            "description": "Used to pass attributes to the toolbar's DOM element."
-          },
-          {
-            "name": "rotateRightButton",
-            "type": "PassThroughOption<HTMLButtonElement, I>",
-            "description": "Used to pass attributes to the rotate right button's DOM element."
-          },
-          {
-            "name": "rotateLeftButton",
-            "type": "PassThroughOption<HTMLButtonElement, I>",
-            "description": "Used to pass attributes to the rotate left button's DOM element."
-          },
-          {
-            "name": "zoomOutButton",
-            "type": "PassThroughOption<HTMLButtonElement, I>",
-            "description": "Used to pass attributes to the zoom out button's DOM element."
-          },
-          {
-            "name": "zoomInButton",
-            "type": "PassThroughOption<HTMLButtonElement, I>",
-            "description": "Used to pass attributes to the zoom in button's DOM element."
-          },
-          {
-            "name": "closeButton",
-            "type": "PassThroughOption<HTMLButtonElement, I>",
-            "description": "Used to pass attributes to the close button's DOM element."
-          },
-          {
-            "name": "original",
-            "type": "PassThroughOption<HTMLImageElement, I>",
-            "description": "Used to pass attributes to the original/preview image's DOM element."
-          },
-          {
-            "name": "motion",
-            "type": "MotionOptions",
-            "description": "Used to pass options to the motion component/directive."
-          },
-          {
-            "name": "maskMotion",
-            "type": "MotionOptions",
-            "description": "Used to pass motion options for the mask animation."
-          }
-        ],
-        "styles": [
-          {
-            "class": "p-image",
-            "description": "Class name of the root element"
-          },
-          {
-            "class": "p-image-preview-mask",
-            "description": "Class name of the preview mask element"
-          },
-          {
-            "class": "p-image-preview-icon",
-            "description": "Class name of the preview icon element"
-          },
-          {
-            "class": "p-image-mask",
-            "description": "Class name of the mask element"
-          },
-          {
-            "class": "p-image-toolbar",
-            "description": "Class name of the toolbar element"
-          },
-          {
-            "class": "p-image-rotate-right-button",
-            "description": "Class name of the rotate right button element"
-          },
-          {
-            "class": "p-image-rotate-left-button",
-            "description": "Class name of the rotate left button element"
-          },
-          {
-            "class": "p-image-zoom-out-button",
-            "description": "Class name of the zoom out button element"
-          },
-          {
-            "class": "p-image-zoom-in-button",
-            "description": "Class name of the zoom in button element"
-          },
-          {
-            "class": "p-image-close-button",
-            "description": "Class name of the close button element"
-          },
-          {
-            "class": "p-image-original",
-            "description": "Class name of the original element"
-          }
-        ],
-        "tokens": [
-          {
-            "token": "image.transition.duration",
-            "variable": "--p-image-transition-duration",
-            "description": "Transition duration of root"
-          },
-          {
-            "token": "image.preview.icon.size",
-            "variable": "--p-image-preview-icon-size",
-            "description": "Icon size of preview"
-          },
-          {
-            "token": "image.preview.mask.background",
-            "variable": "--p-image-preview-mask-background",
-            "description": "Mask background of preview"
-          },
-          {
-            "token": "image.preview.mask.color",
-            "variable": "--p-image-preview-mask-color",
-            "description": "Mask color of preview"
-          },
-          {
-            "token": "image.toolbar.position.left",
-            "variable": "--p-image-toolbar-position-left",
-            "description": "Position left of toolbar"
-          },
-          {
-            "token": "image.toolbar.position.right",
-            "variable": "--p-image-toolbar-position-right",
-            "description": "Position right of toolbar"
-          },
-          {
-            "token": "image.toolbar.position.top",
-            "variable": "--p-image-toolbar-position-top",
-            "description": "Position top of toolbar"
-          },
-          {
-            "token": "image.toolbar.position.bottom",
-            "variable": "--p-image-toolbar-position-bottom",
-            "description": "Position bottom of toolbar"
-          },
-          {
-            "token": "image.toolbar.blur",
-            "variable": "--p-image-toolbar-blur",
-            "description": "Blur of toolbar"
-          },
-          {
-            "token": "image.toolbar.background",
-            "variable": "--p-image-toolbar-background",
-            "description": "Background of toolbar"
-          },
-          {
-            "token": "image.toolbar.border.color",
-            "variable": "--p-image-toolbar-border-color",
-            "description": "Border color of toolbar"
-          },
-          {
-            "token": "image.toolbar.border.width",
-            "variable": "--p-image-toolbar-border-width",
-            "description": "Border width of toolbar"
-          },
-          {
-            "token": "image.toolbar.border.radius",
-            "variable": "--p-image-toolbar-border-radius",
-            "description": "Border radius of toolbar"
-          },
-          {
-            "token": "image.toolbar.padding",
-            "variable": "--p-image-toolbar-padding",
-            "description": "Padding of toolbar"
-          },
-          {
-            "token": "image.toolbar.gap",
-            "variable": "--p-image-toolbar-gap",
-            "description": "Gap of toolbar"
-          },
-          {
-            "token": "image.action.hover.background",
-            "variable": "--p-image-action-hover-background",
-            "description": "Hover background of action"
-          },
-          {
-            "token": "image.action.color",
-            "variable": "--p-image-action-color",
-            "description": "Color of action"
-          },
-          {
-            "token": "image.action.hover.color",
-            "variable": "--p-image-action-hover-color",
-            "description": "Hover color of action"
-          },
-          {
-            "token": "image.action.size",
-            "variable": "--p-image-action-size",
-            "description": "Size of action"
-          },
-          {
-            "token": "image.action.icon.size",
-            "variable": "--p-image-action-icon-size",
-            "description": "Icon size of action"
-          },
-          {
-            "token": "image.action.border.radius",
-            "variable": "--p-image-action-border-radius",
-            "description": "Border radius of action"
-          },
-          {
-            "token": "image.action.focus.ring.width",
-            "variable": "--p-image-action-focus-ring-width",
-            "description": "Focus ring width of action"
-          },
-          {
-            "token": "image.action.focus.ring.style",
-            "variable": "--p-image-action-focus-ring-style",
-            "description": "Focus ring style of action"
-          },
-          {
-            "token": "image.action.focus.ring.color",
-            "variable": "--p-image-action-focus-ring-color",
-            "description": "Focus ring color of action"
-          },
-          {
-            "token": "image.action.focus.ring.offset",
-            "variable": "--p-image-action-focus-ring-offset",
-            "description": "Focus ring offset of action"
-          },
-          {
-            "token": "image.action.focus.ring.shadow",
-            "variable": "--p-image-action-focus-ring-shadow",
-            "description": "Focus ring shadow of action"
           }
         ]
       }
@@ -18277,7 +18041,103 @@
             "description": "Class name of the eye dropper element"
           }
         ],
-        "tokens": null
+        "tokens": [
+          {
+            "token": "inputcolor.border.color",
+            "variable": "--p-inputcolor-border-color",
+            "description": "Shared inset border color (area background, slider track, swatch background)"
+          },
+          {
+            "token": "inputcolor.area.border.radius",
+            "variable": "--p-inputcolor-area-border-radius",
+            "description": "Border radius of area"
+          },
+          {
+            "token": "inputcolor.slider.border.radius",
+            "variable": "--p-inputcolor-slider-border-radius",
+            "description": "Border radius of slider"
+          },
+          {
+            "token": "inputcolor.slider.size",
+            "variable": "--p-inputcolor-slider-size",
+            "description": "Size of slider (horizontal height / vertical width)"
+          },
+          {
+            "token": "inputcolor.handle.size",
+            "variable": "--p-inputcolor-handle-size",
+            "description": "Size of handle (area and slider)"
+          },
+          {
+            "token": "inputcolor.handle.border.color",
+            "variable": "--p-inputcolor-handle-border-color",
+            "description": "Border color of handle"
+          },
+          {
+            "token": "inputcolor.handle.border.width",
+            "variable": "--p-inputcolor-handle-border-width",
+            "description": "Border width of handle"
+          },
+          {
+            "token": "inputcolor.handle.shadow",
+            "variable": "--p-inputcolor-handle-shadow",
+            "description": "Shadow of handle"
+          },
+          {
+            "token": "inputcolor.handle.transition.duration",
+            "variable": "--p-inputcolor-handle-transition-duration",
+            "description": "Transition duration of handle"
+          },
+          {
+            "token": "inputcolor.handle.focus.ring.border.width",
+            "variable": "--p-inputcolor-handle-focus-ring-border-width",
+            "description": "Focus ring border width of handle"
+          },
+          {
+            "token": "inputcolor.handle.focus.ring.border.color",
+            "variable": "--p-inputcolor-handle-focus-ring-border-color",
+            "description": "Focus ring border color of handle"
+          },
+          {
+            "token": "inputcolor.handle.focus.ring.outline.width",
+            "variable": "--p-inputcolor-handle-focus-ring-outline-width",
+            "description": "Focus ring outline width of handle"
+          },
+          {
+            "token": "inputcolor.handle.focus.ring.outline.color",
+            "variable": "--p-inputcolor-handle-focus-ring-outline-color",
+            "description": "Focus ring outline color of handle"
+          },
+          {
+            "token": "inputcolor.handle.focus.ring.outline.offset",
+            "variable": "--p-inputcolor-handle-focus-ring-outline-offset",
+            "description": "Focus ring outline offset of handle"
+          },
+          {
+            "token": "inputcolor.transparency.grid.color",
+            "variable": "--p-inputcolor-transparency-grid-color",
+            "description": "Color of transparency grid (checker pattern)"
+          },
+          {
+            "token": "inputcolor.transparency.grid.background",
+            "variable": "--p-inputcolor-transparency-grid-background",
+            "description": "Background of transparency grid (checker base)"
+          },
+          {
+            "token": "inputcolor.transparency.grid.tile.size",
+            "variable": "--p-inputcolor-transparency-grid-tile-size",
+            "description": "Tile size of transparency grid"
+          },
+          {
+            "token": "inputcolor.swatch.size",
+            "variable": "--p-inputcolor-swatch-size",
+            "description": "Size of swatch"
+          },
+          {
+            "token": "inputcolor.swatch.border.radius",
+            "variable": "--p-inputcolor-swatch-border-radius",
+            "description": "Border radius of swatch"
+          }
+        ]
       }
     },
     {
@@ -22520,6 +22380,14 @@
           "examples": {
             "typescript": "import { Component, OnInit } from '@angular/core';\nimport { AvatarModule } from 'primeng/avatar';\nimport { BadgeModule } from 'primeng/badge';\nimport { Menu, MenuModule } from 'primeng/menu';\nimport { RippleModule } from 'primeng/ripple';\nimport { MenuItem } from 'primeng/api';\n\n@Component({\n    template: `\n        <p-menu [model]=\"items\" class=\"flex justify-center\" styleClass=\"w-full md:w-60\">\n            <ng-template #start>\n                <span class=\"inline-flex items-center gap-1 px-1.5 py-1.5\">\n                    <svg width=\"31\" height=\"33\" viewBox=\"0 0 31 33\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"block mx-auto\">\n                        <path d=\"M15.1934 0V0V0L0.0391235 5.38288L2.35052 25.3417L15.1934 32.427V32.427V32.427L28.0364 25.3417L30.3478 5.38288L15.1934 0Z\" fill=\"var(--p-primary-color)\" />\n                        <mask id=\"mask0_1_52\" style=\"mask-type:luminance\" maskUnits=\"userSpaceOnUse\" x=\"0\" y=\"0\" width=\"31\" height=\"33\">\n                            <path d=\"M15.1934 0V0V0L0.0391235 5.38288L2.35052 25.3417L15.1934 32.427V32.427V32.427L28.0364 25.3417L30.3478 5.38288L15.1934 0Z\" fill=\"var(--ground-background)\" />\n                        </mask>\n                        <g mask=\"url(#mask0_1_52)\">\n                            <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M15.1935 0V3.5994V3.58318V20.0075V20.0075V32.427V32.427L28.0364 25.3417L30.3478 5.38288L15.1935 0Z\" fill=\"var(--p-primary-color)\" />\n                        </g>\n                        <path d=\"M19.6399 15.3776L18.1861 15.0547L19.3169 16.6695V21.6755L23.1938 18.4458V12.9554L21.4169 13.6013L19.6399 15.3776Z\" fill=\"var(--ground-background)\" />\n                        <path d=\"M10.5936 15.3776L12.0474 15.0547L10.9166 16.6695V21.6755L7.03966 18.4458V12.9554L8.81661 13.6013L10.5936 15.3776Z\" fill=\"var(--ground-background)\" />\n                        <path\n                            fill-rule=\"evenodd\"\n                            clip-rule=\"evenodd\"\n                            d=\"M11.3853 16.9726L12.6739 15.0309L13.4793 15.5163H16.7008L17.5061 15.0309L18.7947 16.9726V24.254L17.8283 25.7103L16.7008 26.843H13.4793L12.3518 25.7103L11.3853 24.254V16.9726Z\"\n                            fill=\"var(--ground-background)\"\n                        />\n                        <path d=\"M19.3168 24.7437L21.4168 22.6444V20.5451L19.3168 22.3214V24.7437Z\" fill=\"var(--ground-background)\" />\n                        <path d=\"M10.9166 24.7437L8.81662 22.6444V20.5451L10.9166 22.3214V24.7437Z\" fill=\"var(--ground-background)\" />\n                        <path\n                            fill-rule=\"evenodd\"\n                            clip-rule=\"evenodd\"\n                            d=\"M13.0167 5.68861L11.7244 8.7568L13.8244 14.8932H14.7936V5.68861H13.0167ZM15.4397 5.68861V14.8932H16.5706L18.5091 8.7568L17.2167 5.68861H15.4397Z\"\n                            fill=\"var(--ground-background)\"\n                        />\n                        <path d=\"M13.8244 14.8932L6.87813 12.3094L5.90888 8.27235L11.8859 8.7568L13.9859 14.8932H13.8244Z\" fill=\"var(--ground-background)\" />\n                        <path d=\"M16.5706 14.8932L23.5169 12.3094L24.4861 8.27235L18.3476 8.7568L16.4091 14.8932H16.5706Z\" fill=\"var(--ground-background)\" />\n                        <path d=\"M18.8321 8.27235L22.2245 7.94938L19.9629 5.68861H17.7013L18.8321 8.27235Z\" fill=\"var(--ground-background)\" />\n                        <path d=\"M11.4013 8.27235L8.00893 7.94938L10.2705 5.68861H12.5321L11.4013 8.27235Z\" fill=\"var(--ground-background)\" />\n                    </svg>\n                    <span class=\"text-lg font-semibold\">PRIME<span class=\"text-primary\">APP</span></span>\n                </span>\n            </ng-template>\n            <ng-template #submenuheader let-item>\n                <span class=\"text-primary font-bold text-sm\">{{ item.label }}</span>\n            </ng-template>\n            <ng-template #item let-item>\n                <a pRipple class=\"flex items-center px-2.5 py-1.5 cursor-pointer\" [class]=\"item.linkClass\">\n                    <span [class]=\"item.icon\"></span>\n                    <span class=\"ms-2 text-sm\">{{ item.label }}</span>\n                    @if (item.badge) {\n                        <p-badge class=\"ms-auto\" [value]=\"item.badge\" />\n                    }\n                    @if (item.shortcut) {\n                        <span class=\"ms-auto border border-surface rounded-sm bg-emphasis text-muted-color text-xs px-1 py-0.5\">{{ item.shortcut }}</span>\n                    }\n                </a>\n            </ng-template>\n            <ng-template #end>\n                <button pRipple class=\"relative overflow-hidden w-full border-0 bg-transparent flex items-start p-1.5 pl-3.5 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-none cursor-pointer transition-colors duration-200\">\n                    <p-avatar image=\"https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png\" class=\"mr-2\" shape=\"circle\" />\n                    <span class=\"inline-flex flex-col items-start\">\n                        <span class=\"text-sm font-bold\">Amy Elsner</span>\n                        <span class=\"text-xs\">Admin</span>\n                    </span>\n                </button>\n            </ng-template>\n        </p-menu>\n    `,\n    standalone: true,\n    imports: [AvatarModule, BadgeModule, MenuModule, RippleModule]\n})\nexport class MenuTemplateDemo implements OnInit {\n    items: MenuItem[] | undefined;\n\n    ngOnInit() {\n        this.items = [\n            {\n                separator: true\n            },\n            {\n                label: 'Documents',\n                items: [\n                    {\n                        label: 'New',\n                        icon: 'pi pi-plus',\n                        shortcut: '⌘+N'\n                    },\n                    {\n                        label: 'Search',\n                        icon: 'pi pi-search',\n                        shortcut: '⌘+S'\n                    }\n                ]\n            },\n            {\n                label: 'Profile',\n                items: [\n                    {\n                        label: 'Settings',\n                        icon: 'pi pi-cog',\n                        shortcut: '⌘+O'\n                    },\n                    {\n                        label: 'Messages',\n                        icon: 'pi pi-inbox',\n                        badge: '2'\n                    },\n                    {\n                        label: 'Logout',\n                        icon: 'pi pi-sign-out',\n                        shortcut: '⌘+Q',\n                        linkClass: 'text-red-500! dark:text-red-400!'\n                    }\n                ]\n            },\n            {\n                separator: true\n            }\n        ];\n    }\n}"
           }
+        },
+        {
+          "id": "toggleable",
+          "label": "Toggleable",
+          "description": "Nested submenus are toggleable by default. Use expanded to control the initial state and toggleable to override the default behavior per item.",
+          "examples": {
+            "typescript": "import { Component, OnInit } from '@angular/core';\nimport { MenuModule } from 'primeng/menu';\nimport { MenuItem } from 'primeng/api';\n\n@Component({\n    template: `\n        <div class=\"flex justify-center\">\n            <p-menu [model]=\"items\" />\n        </div>\n    `,\n    standalone: true,\n    imports: [MenuModule]\n})\nexport class MenuToggleableDemo implements OnInit {\n    items: MenuItem[] | undefined;\n\n    ngOnInit() {\n        this.items = [\n            { label: 'Dashboard', icon: 'pi pi-home' },\n            { separator: true },\n            {\n                label: 'Workspace',\n                items: [\n                    { label: 'Analytics', icon: 'pi pi-chart-line' },\n                    {\n                        label: 'Projects',\n                        icon: 'pi pi-folder',\n                        items: [\n                            { label: 'Active Projects', icon: 'pi pi-briefcase' },\n                            { label: 'Recent', icon: 'pi pi-clock' },\n                            { label: 'Favorites', icon: 'pi pi-star' },\n                            { label: 'Completed', icon: 'pi pi-check-circle' }\n                        ]\n                    }\n                ]\n            },\n            { separator: true },\n            { label: 'Help & Support', icon: 'pi pi-question-circle' }\n        ];\n    }\n}"
+          }
         }
       ],
       "api": {
@@ -22657,6 +22525,11 @@
             "name": "submenuheader",
             "type": "TemplateRef<MenuSubmenuHeaderTemplateContext>",
             "description": "Custom submenu header template."
+          },
+          {
+            "name": "submenuicon",
+            "type": "TemplateRef<MenuSubmenuHeaderTemplateContext>",
+            "description": "Custom submenu toggle icon template."
           }
         ],
         "emits": [
@@ -22755,6 +22628,11 @@
             "description": "Used to pass attributes to the submenu label's DOM element."
           },
           {
+            "name": "submenuIcon",
+            "type": "PassThroughOption<SVGElement, I>",
+            "description": "Used to pass attributes to the submenu icon's DOM element."
+          },
+          {
             "name": "separator",
             "type": "PassThroughOption<HTMLLIElement, I>",
             "description": "Used to pass attributes to the separator's DOM element."
@@ -22839,6 +22717,22 @@
           {
             "class": "p-menu-item-label",
             "description": "Class name of the item label element"
+          },
+          {
+            "class": "p-menu-submenu",
+            "description": "Class name of the submenu element"
+          },
+          {
+            "class": "p-menu-submenu-label",
+            "description": "Class name of the submenu label element"
+          },
+          {
+            "class": "p-menu-submenu-icon",
+            "description": "Class name of the submenu icon element"
+          },
+          {
+            "class": "p-menu-submenu-list",
+            "description": "Class name of the submenu list element"
           }
         ],
         "tokens": [
@@ -22961,6 +22855,21 @@
             "token": "menu.submenu.label.color",
             "variable": "--p-menu-submenu-label-color",
             "description": "Color of submenu label"
+          },
+          {
+            "token": "menu.submenu.icon.size",
+            "variable": "--p-menu-submenu-icon-size",
+            "description": "Size of submenu icon"
+          },
+          {
+            "token": "menu.submenu.icon.color",
+            "variable": "--p-menu-submenu-icon-color",
+            "description": "Color of submenu icon"
+          },
+          {
+            "token": "menu.submenu.icon.focus.color",
+            "variable": "--p-menu-submenu-icon-focus-color",
+            "description": "Focus color of submenu icon"
           },
           {
             "token": "menu.separator.border.color",
@@ -26730,6 +26639,41 @@
             "description": "Border radius of node"
           },
           {
+            "token": "organizationchart.node.font.size",
+            "variable": "--p-organizationchart-node-font-size",
+            "description": "Font size of node"
+          },
+          {
+            "token": "organizationchart.node.font.weight",
+            "variable": "--p-organizationchart-node-font-weight",
+            "description": "Font weight of node"
+          },
+          {
+            "token": "organizationchart.node.focus.ring.width",
+            "variable": "--p-organizationchart-node-focus-ring-width",
+            "description": "Focus ring width of node"
+          },
+          {
+            "token": "organizationchart.node.focus.ring.style",
+            "variable": "--p-organizationchart-node-focus-ring-style",
+            "description": "Focus ring style of node"
+          },
+          {
+            "token": "organizationchart.node.focus.ring.color",
+            "variable": "--p-organizationchart-node-focus-ring-color",
+            "description": "Focus ring color of node"
+          },
+          {
+            "token": "organizationchart.node.focus.ring.offset",
+            "variable": "--p-organizationchart-node-focus-ring-offset",
+            "description": "Focus ring offset of node"
+          },
+          {
+            "token": "organizationchart.node.focus.ring.shadow",
+            "variable": "--p-organizationchart-node-focus-ring-shadow",
+            "description": "Focus ring shadow of node"
+          },
+          {
             "token": "organizationchart.node.toggle.button.background",
             "variable": "--p-organizationchart-node-toggle-button-background",
             "description": "Background of node toggle button"
@@ -26788,6 +26732,11 @@
             "token": "organizationchart.node.toggle.button.focus.ring.shadow",
             "variable": "--p-organizationchart-node-toggle-button-focus-ring-shadow",
             "description": "Focus ring shadow of node toggle button"
+          },
+          {
+            "token": "organizationchart.node.toggle.button.icon.size",
+            "variable": "--p-organizationchart-node-toggle-button-icon-size",
+            "description": "Icon size of node toggle button"
           },
           {
             "token": "organizationchart.connector.color",
@@ -27852,7 +27801,7 @@
           {
             "name": "icon",
             "type": "TemplateRef<void>",
-            "description": "Defines template option for icon."
+            "description": "Defines template option for icons."
           },
           {
             "name": "content",
@@ -39694,7 +39643,7 @@
           "label": "Stack",
           "description": "Setting mode to stack displays toasts in a stacked layout. Toasts visually overlap with a subtle scale effect and expand on hover to reveal all messages. Use stackGap to control spacing and stackVisibleLimit to set the maximum number of visible toasts.",
           "examples": {
-            "typescript": "import { Component, inject } from '@angular/core';\nimport { ButtonModule } from 'primeng/button';\nimport { ToastModule } from 'primeng/toast';\nimport { MessageService } from 'primeng/api';\n\n@Component({\n    template: `\n        <p-toast key=\"stack\" mode=\"stack\" />\n        <div class=\"flex justify-center gap-2\">\n            <p-button (onClick)=\"show()\" label=\"Show\" />\n            <p-button (onClick)=\"showMultiple()\" label=\"Multiple\" severity=\"secondary\" />\n        </div>\n    `,\n    standalone: true,\n    imports: [ButtonModule, ToastModule],\n    providers: [MessageService]\n})\nexport class ToastStackDemo {\n    private messageService = inject(MessageService);\n\n    show() {\n        const sev = this.severities[this.counter++ % this.severities.length];\n        this.messageService.add({\n            severity: sev,\n            summary: sev.charAt(0).toUpperCase() + sev.slice(1),\n            detail: 'Toast message content',\n            key: 'stack',\n            life: 3000\n        });\n    }\n\n    showMultiple() {\n        this.messageService.addAll([\n            { severity: 'info', summary: 'Info', detail: 'Message 1', key: 'stack', life: 3000 },\n            { severity: 'success', summary: 'Success', detail: 'Message 2', key: 'stack', life: 3000 },\n            { severity: 'warn', summary: 'Warning', detail: 'Message 3', key: 'stack', life: 3000 }\n        ]);\n    }\n}"
+            "typescript": "import { Component, inject } from '@angular/core';\nimport { ButtonModule } from 'primeng/button';\nimport { ToastModule } from 'primeng/toast';\nimport { MessageService } from 'primeng/api';\n\n@Component({\n    template: `\n        <p-toast key=\"stack\" mode=\"stack\" />\n        <div class=\"flex justify-center gap-2\">\n            <p-button (onClick)=\"show()\" label=\"Show\" />\n            <p-button (onClick)=\"showMultiple()\" label=\"Multiple\" severity=\"secondary\" />\n        </div>\n    `,\n    standalone: true,\n    imports: [ButtonModule, ToastModule],\n    providers: [MessageService]\n})\nexport class ToastStackDemo {\n    private messageService = inject(MessageService);\n\n    show() {\n        const sev = this.severities[this.counter++ % this.severities.length];\n        this.messageService.add({\n            severity: sev,\n            summary: sev.charAt(0).toUpperCase() + sev.slice(1),\n            detail: 'Toast message content',\n            key: 'stack',\n            life: 10000\n        });\n    }\n\n    showMultiple() {\n        this.messageService.addAll([\n            { severity: 'info', summary: 'Info', detail: 'Message 1', key: 'stack', life: 10000 },\n            { severity: 'success', summary: 'Success', detail: 'Message 2', key: 'stack', life: 10000 },\n            { severity: 'warn', summary: 'Warning', detail: 'Message 3', key: 'stack', life: 10000 }\n        ]);\n    }\n}"
           }
         },
         {
@@ -39984,9 +39933,39 @@
             "description": "Used to pass tokens of the blur section"
           },
           {
+            "token": "toast.focus.ring.width",
+            "variable": "--p-toast-focus-ring-width",
+            "description": "Focus ring width of root"
+          },
+          {
+            "token": "toast.focus.ring.style",
+            "variable": "--p-toast-focus-ring-style",
+            "description": "Focus ring style of root"
+          },
+          {
+            "token": "toast.focus.ring.color",
+            "variable": "--p-toast-focus-ring-color",
+            "description": "Focus ring color of root"
+          },
+          {
+            "token": "toast.focus.ring.offset",
+            "variable": "--p-toast-focus-ring-offset",
+            "description": "Focus ring offset of root"
+          },
+          {
+            "token": "toast.focus.ring.shadow",
+            "variable": "--p-toast-focus-ring-shadow",
+            "description": "Focus ring shadow of root"
+          },
+          {
             "token": "toast.icon.size",
             "variable": "--p-toast-icon-size",
             "description": "Size of icon"
+          },
+          {
+            "token": "toast.icon.margin",
+            "variable": "--p-toast-icon-margin",
+            "description": "Margin of icon"
           },
           {
             "token": "toast.content.padding",
@@ -40057,6 +40036,46 @@
             "token": "toast.close.icon.size",
             "variable": "--p-toast-close-icon-size",
             "description": "Size of close icon"
+          },
+          {
+            "token": "toast.normal.background",
+            "variable": "--p-toast-normal-background",
+            "description": "Background of normal"
+          },
+          {
+            "token": "toast.normal.border.color",
+            "variable": "--p-toast-normal-border-color",
+            "description": "Border color of normal"
+          },
+          {
+            "token": "toast.normal.color",
+            "variable": "--p-toast-normal-color",
+            "description": "Color of normal"
+          },
+          {
+            "token": "toast.normal.detail.color",
+            "variable": "--p-toast-normal-detail-color",
+            "description": "Detail color of normal"
+          },
+          {
+            "token": "toast.normal.shadow",
+            "variable": "--p-toast-normal-shadow",
+            "description": "Shadow of normal"
+          },
+          {
+            "token": "toast.normal.close.button.hover.background",
+            "variable": "--p-toast-normal-close-button-hover-background",
+            "description": "Close button hover background of normal"
+          },
+          {
+            "token": "toast.normal.close.button.focus.ring.color",
+            "variable": "--p-toast-normal-close-button-focus-ring-color",
+            "description": "Close button focus ring color of normal"
+          },
+          {
+            "token": "toast.normal.close.button.focus.ring.shadow",
+            "variable": "--p-toast-normal-close-button-focus-ring-shadow",
+            "description": "Close button focus ring shadow of normal"
           },
           {
             "token": "toast.info.background",

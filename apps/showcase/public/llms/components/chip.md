@@ -163,6 +163,7 @@ Chip represents people using icons, labels and images.
 | chip.gap | --p-chip-gap | Gap of root |
 | chip.transition.duration | --p-chip-transition-duration | Transition duration of root |
 | chip.background | --p-chip-background | Background of root |
+| chip.focus.background | --p-chip-focus-background | Focus background of root |
 | chip.color | --p-chip-color | Color of root |
 | chip.image.width | --p-chip-image-width | Width of image |
 | chip.image.height | --p-chip-image-height | Height of image |

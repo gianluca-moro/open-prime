@@ -483,6 +483,13 @@ export class OrganizationChartTemplateDemo {
 | organizationchart.node.padding | --p-organizationchart-node-padding | Padding of node |
 | organizationchart.node.toggleable.padding | --p-organizationchart-node-toggleable-padding | Toggleable padding of node |
 | organizationchart.node.border.radius | --p-organizationchart-node-border-radius | Border radius of node |
+| organizationchart.node.font.size | --p-organizationchart-node-font-size | Font size of node |
+| organizationchart.node.font.weight | --p-organizationchart-node-font-weight | Font weight of node |
+| organizationchart.node.focus.ring.width | --p-organizationchart-node-focus-ring-width | Focus ring width of node |
+| organizationchart.node.focus.ring.style | --p-organizationchart-node-focus-ring-style | Focus ring style of node |
+| organizationchart.node.focus.ring.color | --p-organizationchart-node-focus-ring-color | Focus ring color of node |
+| organizationchart.node.focus.ring.offset | --p-organizationchart-node-focus-ring-offset | Focus ring offset of node |
+| organizationchart.node.focus.ring.shadow | --p-organizationchart-node-focus-ring-shadow | Focus ring shadow of node |
 | organizationchart.node.toggle.button.background | --p-organizationchart-node-toggle-button-background | Background of node toggle button |
 | organizationchart.node.toggle.button.hover.background | --p-organizationchart-node-toggle-button-hover-background | Hover background of node toggle button |
 | organizationchart.node.toggle.button.border.color | --p-organizationchart-node-toggle-button-border-color | Border color of node toggle button |
@@ -495,6 +502,7 @@ export class OrganizationChartTemplateDemo {
 | organizationchart.node.toggle.button.focus.ring.color | --p-organizationchart-node-toggle-button-focus-ring-color | Focus ring color of node toggle button |
 | organizationchart.node.toggle.button.focus.ring.offset | --p-organizationchart-node-toggle-button-focus-ring-offset | Focus ring offset of node toggle button |
 | organizationchart.node.toggle.button.focus.ring.shadow | --p-organizationchart-node-toggle-button-focus-ring-shadow | Focus ring shadow of node toggle button |
+| organizationchart.node.toggle.button.icon.size | --p-organizationchart-node-toggle-button-icon-size | Icon size of node toggle button |
 | organizationchart.connector.color | --p-organizationchart-connector-color | Color of connector |
 | organizationchart.connector.border.radius | --p-organizationchart-connector-border-radius | Border radius of connector |
 | organizationchart.connector.height | --p-organizationchart-connector-height | Height of connector |

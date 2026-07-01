@@ -1282,6 +1282,13 @@
                             "description": "Visibility of submenu."
                         },
                         {
+                            "name": "toggleable",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "description": "Whether the submenu can be toggled (collapsed/expanded)."
+                        },
+                        {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
@@ -27441,6 +27448,18 @@
                                     "type": "MenuSubmenuHeaderTemplateContext"
                                 }
                             ]
+                        },
+                        {
+                            "name": "submenuicon",
+                            "description": "Custom submenu toggle icon template.",
+                            "type": "TemplateRef<MenuSubmenuHeaderTemplateContext>",
+                            "parameters": [
+                                {
+                                    "name": "context",
+                                    "description": "submenu header context.",
+                                    "type": "MenuSubmenuHeaderTemplateContext"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -27493,6 +27512,22 @@
                     {
                         "class": "p-menu-item-label",
                         "description": "Class name of the item label element"
+                    },
+                    {
+                        "class": "p-menu-submenu",
+                        "description": "Class name of the submenu element"
+                    },
+                    {
+                        "class": "p-menu-submenu-label",
+                        "description": "Class name of the submenu label element"
+                    },
+                    {
+                        "class": "p-menu-submenu-icon",
+                        "description": "Class name of the submenu icon element"
+                    },
+                    {
+                        "class": "p-menu-submenu-list",
+                        "description": "Class name of the submenu list element"
                     }
                 ]
             }
@@ -27537,6 +27572,18 @@
                             }
                         ],
                         "description": "Custom template of submenu header."
+                    },
+                    {
+                        "parent": "types",
+                        "name": "submenuicon",
+                        "parameters": [
+                            {
+                                "name": "context",
+                                "type": "MenuSubmenuHeaderTemplateContext",
+                                "description": "submenu header context."
+                            }
+                        ],
+                        "description": "Custom template of submenu toggle icon."
                     }
                 ]
             },
@@ -27574,6 +27621,13 @@
                                 "readonly": false,
                                 "type": "PassThroughOption<HTMLLIElement, I>",
                                 "description": "Used to pass attributes to the submenu label's DOM element."
+                            },
+                            {
+                                "name": "submenuIcon",
+                                "optional": true,
+                                "readonly": false,
+                                "type": "PassThroughOption<SVGElement, I>",
+                                "description": "Used to pass attributes to the submenu icon's DOM element."
                             },
                             {
                                 "name": "separator",
@@ -33472,7 +33526,7 @@
                         },
                         {
                             "name": "icon",
-                            "description": "Defines template option for icon.",
+                            "description": "Defines template option for icons.",
                             "type": "TemplateRef<void>",
                             "parameters": []
                         },

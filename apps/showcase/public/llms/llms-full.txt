@@ -1,6 +1,6 @@
 # PrimeNG Documentation
 
-Generated: 2026-04-03
+Generated: 2026-07-01
 
 ---
 
@@ -81,7 +81,7 @@ Application wide configuration for PrimeNG.
 The nonce value to use on dynamically generated style elements in core.
 
 ```typescript
-providePrimeNG({
+providePrimeNG({ 
     csp: {
         nonce: '...'
     }
@@ -180,7 +180,7 @@ export class AppComponent implements OnInit {
 A translation is specified using the translation property during initialization.
 
 ```typescript
-providePrimeNG({
+providePrimeNG({ 
     translation: {
         accept: 'Aceptar',
         reject: 'Rechazar',
@@ -215,7 +215,7 @@ export const appConfig: ApplicationConfig = {
 Ripple is an optional animation for the supported components such as buttons. It is disabled by default.
 
 ```typescript
-providePrimeNG({
+providePrimeNG({ 
     ripple: true
 })
 ```
@@ -421,19 +421,6 @@ The term unstyled is used to define an alternative styling approach instead of t
 ## Example-
 
 Unstyled components require styling using your preferred approach. We recommend using Tailwind CSS with PassThrough attributes, a combination that works seamlessly together. The tailwindcss-primeui even provides special variants such as p-outlined: , p-vertical for the PrimeNG components. The example below demonstrates how to style a button component with Tailwind CSS using PassThrough attributes. Before you begin, refer to the pass through section in the button documentation to familiarize yourself with the component's internal structure and PassThrough attributes. In this example, we'll target the root , label and icon elements to apply custom styles.
-
-```typescript
-<p-button
-    label="Search"
-    icon="pi pi-search"
-    [unstyled]="true"
-    [pt]="{
-        root: 'bg-teal-500 hover:bg-teal-700 active:bg-teal-900 cursor-pointer py-2 px-3 rounded-full border-0 flex gap-2',
-        label: 'text-white font-bold',
-        icon: 'text-white !text-lg'
-    }"
-/>
-```
 
 ## Global-
 
@@ -2230,14 +2217,14 @@ export class AutoCompleteAdvancedChipsDemo implements OnInit {
     filterProducts(event: any) {
         let filtered: Product[] = [];
         let query = event.query;
-
+        
         for (let i = 0; i < this.products().length; i++) {
             let product = this.products()[i];
             if (product.name?.toLowerCase().indexOf(query.toLowerCase()) == 0) {
                 filtered.push(product);
             }
         }
-
+        
         this.filteredProducts = filtered;
     }
 
@@ -2434,7 +2421,7 @@ export class AutoCompleteDropdownDemo {
 
     search(event: AutoCompleteCompleteEvent) {
         let _items = [...Array(10).keys()];
-
+        
         this.items = event.query ? [...Array(10).keys()].map((item) => event.query + '-' + item) : _items;
     }
 }
@@ -2602,14 +2589,14 @@ export class AutoCompleteForceSelectionDemo implements OnInit {
     filterCountry(event: AutoCompleteCompleteEvent) {
         let filtered: any[] = [];
         let query = event.query;
-
+        
         for (let i = 0; i < (this.countries as any[]).length; i++) {
             let country = (this.countries as any[])[i];
             if (country.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
                 filtered.push(country);
             }
         }
-
+        
         this.filteredCountries = filtered;
     }
 }
@@ -2691,7 +2678,7 @@ export class AutoCompleteGroupDemo implements OnInit {
     filterGroupedCity(event: AutoCompleteCompleteEvent) {
         let query = event.query;
         let filteredGroups = [];
-
+        
         for (let optgroup of this.groupedCities as SelectItemGroup[]) {
             let filteredSubOptions = this.filterService.filter(optgroup.items, ['label'], query, 'contains');
             if (filteredSubOptions && filteredSubOptions.length) {
@@ -2702,7 +2689,7 @@ export class AutoCompleteGroupDemo implements OnInit {
                 });
             }
         }
-
+        
         this.filteredGroups = filteredGroups;
     }
 }
@@ -2866,14 +2853,14 @@ export class AutoCompleteObjectsDemo implements OnInit {
     filterCountry(event: AutoCompleteCompleteEvent) {
         let filtered: any[] = [];
         let query = event.query;
-
+        
         for (let i = 0; i < (this.countries as any[]).length; i++) {
             let country = (this.countries as any[])[i];
             if (country.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
                 filtered.push(country);
             }
         }
-
+        
         this.filteredCountries = filtered;
     }
 }
@@ -3039,7 +3026,7 @@ export class AutoCompleteTemplateDemo implements OnInit {
     filterCountry(event: AutoCompleteCompleteEvent) {
         let filtered: any[] = [];
         let query = event.query;
-
+        
         for (let i = 0; i < (this.countries as any[]).length; i++) {
             let country = (this.countries as any[])[i];
             if (country.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
@@ -3139,14 +3126,14 @@ export class AutoCompleteVirtualScrollDemo implements OnInit {
         //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
         let filtered: any[] = [];
         let query = event.query;
-
+        
         for (let i = 0; i < (this.items as any[]).length; i++) {
             let item = (this.items as any[])[i];
             if (item.label.toLowerCase().indexOf(query.toLowerCase()) == 0) {
                 filtered.push(item);
             }
         }
-
+        
         this.filteredItems = filtered;
     }
 }
@@ -4709,7 +4696,7 @@ export class ButtonLoadingDemo {
 
     load() {
         this.loading.set(true);
-
+        
         setTimeout(() => {
             this.loading.set(false);
         }, 2000);
@@ -7505,7 +7492,7 @@ export class ChartBasicDemo implements OnInit {
             const textColor = documentStyle.getPropertyValue('--p-text-color');
             const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
             const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
-
+        
             this.basicData = {
                 labels: ['Q1', 'Q2', 'Q3', 'Q4'],
                 datasets: [
@@ -7518,7 +7505,7 @@ export class ChartBasicDemo implements OnInit {
                     }
                 ]
             };
-
+        
             this.basicOptions = {
                 maintainAspectRatio: false,
                 aspectRatio: 0.8,
@@ -7593,7 +7580,7 @@ export class ChartComboDemo implements OnInit {
             const textColor = documentStyle.getPropertyValue('--p-text-color');
             const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
             const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
-
+        
             this.data = {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [
@@ -7622,7 +7609,7 @@ export class ChartComboDemo implements OnInit {
                     }
                 ]
             };
-
+        
             this.options = {
                 maintainAspectRatio: false,
                 aspectRatio: 0.6,
@@ -7692,7 +7679,7 @@ export class ChartDoughnutDemo implements OnInit {
         if (isPlatformBrowser(this.platformId)) {
             const documentStyle = getComputedStyle(document.documentElement);
             const textColor = documentStyle.getPropertyValue('--p-text-color');
-
+        
             this.data = {
                 labels: ['A', 'B', 'C'],
                 datasets: [
@@ -7703,7 +7690,7 @@ export class ChartDoughnutDemo implements OnInit {
                     }
                 ]
             };
-
+        
             this.options = {
                 cutout: '60%',
                 plugins: {
@@ -7754,7 +7741,7 @@ export class ChartHorizontalBarDemo implements OnInit {
             const textColor = documentStyle.getPropertyValue('--p-text-color');
             const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
             const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
-
+        
             this.data = {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [
@@ -7772,7 +7759,7 @@ export class ChartHorizontalBarDemo implements OnInit {
                     }
                 ]
             };
-
+        
             this.options = {
                 indexAxis: 'y',
                 maintainAspectRatio: false,
@@ -7848,7 +7835,7 @@ export class ChartLineDemo implements OnInit {
             const textColor = documentStyle.getPropertyValue('--p-text-color');
             const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
             const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
-
+        
             this.data = {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [
@@ -7868,7 +7855,7 @@ export class ChartLineDemo implements OnInit {
                     }
                 ]
             };
-
+        
             this.options = {
                 maintainAspectRatio: false,
                 aspectRatio: 0.6,
@@ -7940,7 +7927,7 @@ export class ChartLineStyleDemo implements OnInit {
             const textColor = documentStyle.getPropertyValue('--p-text-color');
             const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
             const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
-
+        
             this.data = {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [
@@ -7969,7 +7956,7 @@ export class ChartLineStyleDemo implements OnInit {
                     }
                 ]
             };
-
+        
             this.options = {
                 maintainAspectRatio: false,
                 aspectRatio: 0.6,
@@ -8083,7 +8070,7 @@ export class ChartMultiAxisDemo implements OnInit {
             const textColor = documentStyle.getPropertyValue('--p-text-color');
             const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
             const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
-
+        
             this.data = {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [
@@ -8105,7 +8092,7 @@ export class ChartMultiAxisDemo implements OnInit {
                     }
                 ]
             };
-
+        
             this.options = {
                 stacked: false,
                 maintainAspectRatio: false,
@@ -8191,7 +8178,7 @@ export class ChartPieDemo implements OnInit {
         if (isPlatformBrowser(this.platformId)) {
             const documentStyle = getComputedStyle(document.documentElement);
             const textColor = documentStyle.getPropertyValue('--text-color');
-
+        
             this.data = {
                 labels: ['A', 'B', 'C'],
                 datasets: [
@@ -8202,7 +8189,7 @@ export class ChartPieDemo implements OnInit {
                     }
                 ]
             };
-
+        
             this.options = {
                 plugins: {
                     legend: {
@@ -8254,7 +8241,7 @@ export class ChartPolarAreaDemo implements OnInit {
             const documentStyle = getComputedStyle(document.documentElement);
             const textColor = documentStyle.getPropertyValue('--p-text-color');
             const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
-
+        
             this.data = {
                 datasets: [
                     {
@@ -8271,7 +8258,7 @@ export class ChartPolarAreaDemo implements OnInit {
                 ],
                 labels: ['Pink', 'Gray', 'Orange', 'Purple', 'Cyan']
             };
-
+        
             this.options = {
                 plugins: {
                     legend: {
@@ -8407,7 +8394,7 @@ export class ChartRadarDemo implements OnInit {
             const documentStyle = getComputedStyle(document.documentElement);
             const textColor = documentStyle.getPropertyValue('--p-text-color');
             const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
-
+        
             this.data = {
                 labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
                 datasets: [
@@ -8431,7 +8418,7 @@ export class ChartRadarDemo implements OnInit {
                     }
                 ]
             };
-
+        
             this.options = {
                 plugins: {
                     legend: {
@@ -8488,7 +8475,7 @@ export class ChartStackedBarDemo implements OnInit {
             const textColor = documentStyle.getPropertyValue('--p-text-color');
             const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
             const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
-
+        
             this.data = {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [
@@ -8512,7 +8499,7 @@ export class ChartStackedBarDemo implements OnInit {
                     }
                 ]
             };
-
+        
             this.options = {
                 maintainAspectRatio: false,
                 aspectRatio: 0.8,
@@ -8590,7 +8577,7 @@ export class ChartVerticalBarDemo implements OnInit {
             const textColor = documentStyle.getPropertyValue('--p-text-color');
             const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
             const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
-
+        
             this.data = {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [
@@ -8608,7 +8595,7 @@ export class ChartVerticalBarDemo implements OnInit {
                     }
                 ]
             };
-
+        
             this.options = {
                 maintainAspectRatio: false,
                 aspectRatio: 0.8,
@@ -9010,7 +8997,7 @@ export class CheckboxReactiveFormsDemo {
 
     onSubmit() {
         this.formSubmitted = true;
-
+        
         if (this.exampleForm.valid) {
             this.messageService.add({
                 severity: 'success',
@@ -9018,14 +9005,14 @@ export class CheckboxReactiveFormsDemo {
                 detail: 'Form is submitted',
                 life: 3000
             });
-
+        
             this.exampleForm.reset({
                 cheese: false,
                 mushroom: false,
                 pepper: false,
                 onion: false
             });
-
+        
             this.formSubmitted = false;
         }
     }
@@ -9124,7 +9111,7 @@ export class CheckboxTemplateDrivenFormsDemo {
 
     onSubmit(form: NgForm) {
         this.formSubmitted = true;
-
+        
         if (this.isAtLeastOneSelected()) {
             this.messageService.add({
                 severity: 'success',
@@ -9132,7 +9119,7 @@ export class CheckboxTemplateDrivenFormsDemo {
                 detail: 'Form is submitted',
                 life: 3000
             });
-
+        
             this.formModel = {
                 cheese: false,
                 mushroom: false,
@@ -9140,7 +9127,7 @@ export class CheckboxTemplateDrivenFormsDemo {
                 onion: false
             };
             form.resetForm(this.formModel);
-
+        
             this.formSubmitted = false;
         }
     }
@@ -9429,6 +9416,7 @@ Chip represents people using icons, labels and images.
 | chip.gap | --p-chip-gap | Gap of root |
 | chip.transition.duration | --p-chip-transition-duration | Transition duration of root |
 | chip.background | --p-chip-background | Background of root |
+| chip.focus.background | --p-chip-focus-background | Focus background of root |
 | chip.color | --p-chip-color | Color of root |
 | chip.image.width | --p-chip-image-width | Width of image |
 | chip.image.height | --p-chip-image-height | Height of image |
@@ -10606,6 +10594,29 @@ CommandMenu is a search-driven command palette component.
 | p-commandmenu-empty | Class name of the empty message element |
 | p-commandmenu-footer | Class name of the footer element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| commandmenu.background | --p-commandmenu-background | Background of root |
+| commandmenu.border.color | --p-commandmenu-border-color | Border color of root |
+| commandmenu.border.radius | --p-commandmenu-border-radius | Border radius of root |
+| commandmenu.height | --p-commandmenu-height | Height of root |
+| commandmenu.header.padding | --p-commandmenu-header-padding | Padding of header |
+| commandmenu.header.background | --p-commandmenu-header-background | Background of header |
+| commandmenu.header.border.color | --p-commandmenu-header-border-color | Border color of header |
+| commandmenu.input.padding | --p-commandmenu-input-padding | Padding of input |
+| commandmenu.input.font.size | --p-commandmenu-input-font-size | Font size of input |
+| commandmenu.input.font.weight | --p-commandmenu-input-font-weight | Font weight of input |
+| commandmenu.input.color | --p-commandmenu-input-color | Color of input |
+| commandmenu.input.placeholder.color | --p-commandmenu-input-placeholder-color | Placeholder color of input |
+| commandmenu.list.padding | --p-commandmenu-list-padding | Padding of list |
+| commandmenu.empty.padding | --p-commandmenu-empty-padding | Padding of empty |
+| commandmenu.empty.color | --p-commandmenu-empty-color | Color of empty |
+| commandmenu.footer.padding | --p-commandmenu-footer-padding | Padding of footer |
+| commandmenu.footer.background | --p-commandmenu-footer-background | Background of footer |
+| commandmenu.footer.border.color | --p-commandmenu-footer-border-color | Border color of footer |
+
 ---
 
 # Angular ConfirmDialog Component
@@ -10658,7 +10669,7 @@ export class ConfirmDialogBasicDemo {
                 label: 'Delete',
                 severity: 'danger'
             },
-
+        
             accept: () => {
                 this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted' });
             },
@@ -11851,6 +11862,11 @@ ContextMenu displays an overlay menu on right click of its target. Note that com
 | contextmenu.item.label.font.weight | --p-contextmenu-item-label-font-weight | Font weight of item label |
 | contextmenu.item.label.font.size | --p-contextmenu-item-label-font-size | Font size of item label |
 | contextmenu.submenu.mobile.indent | --p-contextmenu-submenu-mobile-indent | Mobile indent of submenu |
+| contextmenu.submenu.label.padding | --p-contextmenu-submenu-label-padding | Padding of submenu label |
+| contextmenu.submenu.label.font.weight | --p-contextmenu-submenu-label-font-weight | Font weight of submenu label |
+| contextmenu.submenu.label.font.size | --p-contextmenu-submenu-label-font-size | Font size of submenu label |
+| contextmenu.submenu.label.background | --p-contextmenu-submenu-label-background | Background of submenu label |
+| contextmenu.submenu.label.color | --p-contextmenu-submenu-label-color | Color of submenu label |
 | contextmenu.submenu.icon.size | --p-contextmenu-submenu-icon-size | Size of submenu icon |
 | contextmenu.submenu.icon.color | --p-contextmenu-submenu-icon-color | Color of submenu icon |
 | contextmenu.submenu.icon.focus.color | --p-contextmenu-submenu-icon-focus-color | Focus color of submenu icon |
@@ -11944,13 +11960,13 @@ export class DataViewBasicDemo implements OnInit {
         switch (product.inventoryStatus) {
             case 'INSTOCK':
                 return 'success';
-
+        
             case 'LOWSTOCK':
                 return 'warn';
-
+        
             case 'OUTOFSTOCK':
                 return 'danger';
-
+        
             default:
                 return null;
         }
@@ -12342,13 +12358,13 @@ export class DataViewSortingDemo implements OnInit {
         switch (product.inventoryStatus) {
             case 'INSTOCK':
                 return 'success';
-
+        
             case 'LOWSTOCK':
                 return 'warn';
-
+        
             case 'OUTOFSTOCK':
                 return 'danger';
-
+        
             default:
                 return null;
         }
@@ -15043,25 +15059,25 @@ export class DockAdvancedDemo implements OnInit {
         let response;
         let argsIndex = text.indexOf(' ');
         let command = argsIndex !== -1 ? text.substring(0, argsIndex) : text;
-
+        
         switch (command) {
             case 'date':
                 response = 'Today is ' + new Date().toDateString();
                 break;
-
+        
             case 'greet':
                 response = 'Hola ' + text.substring(argsIndex + 1) + '!';
                 break;
-
+        
             case 'random':
                 response = Math.floor(Math.random() * 100);
                 break;
-
+        
             default:
                 response = 'Unknown command: ' + command;
                 break;
         }
-
+        
         if (response) {
             this.terminalService.sendResponse(response as string);
         }
@@ -16164,7 +16180,7 @@ export class DynamicDialogExampleDemo {
                 footer: Footer
             }
         });
-
+        
         this.ref.onClose.subscribe((data: any) => {
             let summary_and_detail;
             if (data) {
@@ -16175,7 +16191,7 @@ export class DynamicDialogExampleDemo {
             }
             this.messageService.add({ severity: 'info', ...summary_and_detail, life: 3000 });
         });
-
+        
         this.ref.onMaximize.subscribe((value) => {
             this.messageService.add({
                 severity: 'info',
@@ -17009,10 +17025,10 @@ export class FileUploadTemplateDemo {
         if (bytes === 0) {
             return `0 ${sizes[0]}`;
         }
-
+        
         const i = Math.floor(Math.log(bytes) / Math.log(k));
         const formattedSize = parseFloat((bytes / Math.pow(k, i)).toFixed(dm));
-
+        
         return `${formattedSize} ${sizes[i]}`;
     }
 }
@@ -18806,6 +18822,45 @@ GalleryZoomToggle represents the zoom toggle action button.
 | p-gallery-thumbnail-content | Class name of the thumbnail content element |
 | p-gallery-thumbnail-item | Class name of the thumbnail item element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| gallery.backdrop.background | --p-gallery-backdrop-background | Background of backdrop |
+| gallery.header.padding | --p-gallery-header-padding | Padding of header |
+| gallery.header.background | --p-gallery-header-background | Background of header |
+| gallery.footer.padding | --p-gallery-footer-padding | Padding of footer |
+| gallery.footer.background | --p-gallery-footer-background | Background of footer |
+| gallery.footer.border.color | --p-gallery-footer-border-color | Border color of footer |
+| gallery.item.transition.duration | --p-gallery-item-transition-duration | Transition duration of item (transform and opacity) |
+| gallery.action.size | --p-gallery-action-size | Size of action (shared by action / next / prev) |
+| gallery.action.border.radius | --p-gallery-action-border-radius | Border radius of action |
+| gallery.action.color | --p-gallery-action-color | Color of action |
+| gallery.action.hover.background | --p-gallery-action-hover-background | Hover background of action |
+| gallery.action.hover.color | --p-gallery-action-hover-color | Hover color of action |
+| gallery.action.disabled.opacity | --p-gallery-action-disabled-opacity | Disabled opacity of action |
+| gallery.action.transition.duration | --p-gallery-action-transition-duration | Transition duration of action |
+| gallery.action.icon.size | --p-gallery-action-icon-size | Icon size of action |
+| gallery.navigation.background | --p-gallery-navigation-background | Background of navigation (next / prev) |
+| gallery.navigation.size | --p-gallery-navigation-size | Size of navigation |
+| gallery.navigation.border.radius | --p-gallery-navigation-border-radius | Border radius of navigation |
+| gallery.navigation.color | --p-gallery-navigation-color | Color of navigation |
+| gallery.navigation.hover.background | --p-gallery-navigation-hover-background | Hover background of navigation |
+| gallery.navigation.hover.color | --p-gallery-navigation-hover-color | Hover color of navigation |
+| gallery.navigation.offset | --p-gallery-navigation-offset | Edge offset of navigation |
+| gallery.navigation.transition.duration | --p-gallery-navigation-transition-duration | Transition duration of navigation |
+| gallery.navigation.icon.size | --p-gallery-navigation-icon-size | Icon size of navigation |
+| gallery.thumbnail.size | --p-gallery-thumbnail-size | Size of thumbnail item |
+| gallery.thumbnail.padding | --p-gallery-thumbnail-padding | Padding of thumbnail item |
+| gallery.thumbnail.background | --p-gallery-thumbnail-background | Background of thumbnail item |
+| gallery.thumbnail.border.radius | --p-gallery-thumbnail-border-radius | Border radius of thumbnail item |
+| gallery.thumbnail.border.width | --p-gallery-thumbnail-border-width | Border width of thumbnail item (outline width) |
+| gallery.thumbnail.hover.border.color | --p-gallery-thumbnail-hover-border-color | Hover border color of thumbnail item |
+| gallery.thumbnail.active.border.color | --p-gallery-thumbnail-active-border-color | Active border color of thumbnail item |
+| gallery.thumbnail.active.scale | --p-gallery-thumbnail-active-scale | Active scale of thumbnail item |
+| gallery.thumbnail.transition.duration | --p-gallery-thumbnail-transition-duration | Transition duration of thumbnail item |
+| gallery.thumbnail.content.padding | --p-gallery-thumbnail-content-padding | Padding of thumbnail content |
+
 ---
 
 # Angular IconField Component
@@ -19177,234 +19232,6 @@ IftaLabel is used to create infield top aligned labels.
 
 ---
 
-# Angular Image Component
-
-Displays an image with preview and tranformation options.
-
-## Accessibility
-
-Screen Reader The preview button is a native button element with an aria-label that refers to the aria.zoomImage property of the locale API by default. When preview is active, dialog role with aria-modal is applied to the overlay image container. Button controls use aria.rotateRight , aria.rotateLeft , aria.zoomIn , aria.zoomOut and aria.close from the locale API as aria-label . ButtonBar Keyboard Support When preview is activated, close button receives the initial focus. Key Function tab Moves focus through button bar. enter Activates the button. space Activates the button. esc Closes the image preview.
-
-## Basic
-
-Image is used as the native img element and supports all properties that the native element has. For multiple image, see Galleria.
-
-**Example:**
-
-```typescript
-import { Component } from '@angular/core';
-import { ImageModule } from 'primeng/image';
-
-@Component({
-    template: `
-        <div class="flex justify-center">
-            <p-image src="https://primefaces.org/cdn/primeng/images/galleria/galleria10.jpg" alt="Image" width="250" />
-        </div>
-    `,
-    standalone: true,
-    imports: [ImageModule]
-})
-export class ImageBasicDemo {}
-```
-
-## Preview
-
-Preview mode displays a modal layer when the image is clicked that provides transformation options such as rotating and zooming.
-
-**Example:**
-
-```typescript
-import { Component } from '@angular/core';
-import { ImageModule } from 'primeng/image';
-
-@Component({
-    template: `
-        <div class="flex justify-center">
-            <p-image src="https://primefaces.org/cdn/primeng/images/galleria/galleria10.jpg" alt="Image" width="250" [preview]="true" />
-        </div>
-    `,
-    standalone: true,
-    imports: [ImageModule]
-})
-export class ImagePreviewDemo {}
-```
-
-## previewimagesource-doc
-
-In case that you want to show different image on preview, you can set previewImageSrc attribute. It could come handy when wanted to use smaller image version at first and bigger one on preview.
-
-**Example:**
-
-```typescript
-import { Component } from '@angular/core';
-import { ImageModule } from 'primeng/image';
-
-@Component({
-    template: `
-        <div class="flex justify-center">
-            <p-image src="https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg" previewImageSrc="https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg" alt="Image" width="250" [preview]="true" />
-        </div>
-    `,
-    standalone: true,
-    imports: [ImageModule]
-})
-export class ImagePreviewImageSourceDemo {}
-```
-
-## Template
-
-An eye icon is displayed by default when the image is hovered in preview mode. Use the indicator template for custom content.
-
-**Example:**
-
-```typescript
-import { Component } from '@angular/core';
-import { ImageModule } from 'primeng/image';
-
-@Component({
-    template: `
-        <div class="flex justify-center">
-            <p-image src="https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg" [preview]="true" alt="Image" width="250">
-                <ng-template #indicator>
-                    <i class="pi pi-search"></i>
-                </ng-template>
-                <ng-template #image>
-                    <img src="https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg" alt="image" width="250" />
-                </ng-template>
-                <ng-template #preview let-style="style" let-previewCallback="previewCallback">
-                    <img src="https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg" alt="image" [style]="style" (click)="previewCallback()" />
-                </ng-template>
-            </p-image>
-        </div>
-    `,
-    standalone: true,
-    imports: [ImageModule]
-})
-export class ImageTemplateDemo {}
-```
-
-## Image
-
-Displays an image with preview and tranformation options. For multiple image, see Galleria.
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| dt | Object | undefined | Defines scoped design tokens of the component. |
-| unstyled | boolean | undefined | Indicates whether the component should be rendered without styles. |
-| pt | PassThrough<I, ImagePassThroughOptions<I>> | undefined | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | PassThroughOptions | undefined | Used to configure passthrough(pt) options of the component. |
-| imageClass | string | - | Style class of the image element. |
-| imageStyle | Partial<CSSStyleDeclaration> | - | Inline style of the image element. |
-| src | string \| SafeUrl | - | The source path for the main image. |
-| srcSet | string \| SafeUrl | - | The srcset definition for the main image. |
-| sizes | string | - | The sizes definition for the main image. |
-| previewImageSrc | string \| SafeUrl | - | The source path for the preview image. |
-| previewImageSrcSet | string \| SafeUrl | - | The srcset definition for the preview image. |
-| previewImageSizes | string | - | The sizes definition for the preview image. |
-| alt | string | - | Attribute of the preview image element. |
-| width | string | - | Attribute of the image element. |
-| height | string | - | Attribute of the image element. |
-| loading | "lazy" \| "eager" | - | Attribute of the image element. |
-| preview | boolean | - | Controls the preview functionality. |
-| modalEnterAnimation | string | 'p-modal-enter' | Enter animation class name of modal. |
-| modalLeaveAnimation | string | 'p-modal-leave' | Leave animation class name of modal. |
-| appendTo | HTMLElement \| ElementRef \| TemplateRef<any> \| "self" \| "body" \| null \| undefined | 'self' | Target element to attach the overlay, valid values are "body" or a local ng-template variable of another element (note: use binding with brackets for template variables, e.g. [appendTo]="mydiv" for a div element having #mydiv as variable name). |
-| maskMotionOptions | MotionOptions | - | The motion options for the mask. |
-| motionOptions | MotionOptions | - | The motion options. |
-
-### Emits
-
-| Name | Parameters | Description |
-|------|------------|-------------|
-| onShow | value: any | Triggered when the preview overlay is shown. |
-| onHide | value: any | Triggered when the preview overlay is hidden. |
-| onImageError | event: Event | This event is triggered if an error occurs while loading an image file. |
-
-### Templates
-
-| Name | Type | Description |
-|------|------|-------------|
-| indicator | TemplateRef<void> | Custom indicator template. |
-| rotaterighticon | TemplateRef<void> | Custom rotate right icon template. |
-| rotatelefticon | TemplateRef<void> | Custom rotate left icon template. |
-| zoomouticon | TemplateRef<void> | Custom zoom out icon template. |
-| zoominicon | TemplateRef<void> | Custom zoom in icon template. |
-| closeicon | TemplateRef<void> | Custom close icon template. |
-| preview | TemplateRef<ImagePreviewTemplateContext> | Custom preview template. |
-| image | TemplateRef<ImageImageTemplateContext> | Custom image template. |
-
-## Pass Through Options
-
-| Name | Type | Description |
-|------|------|-------------|
-| root | PassThroughOption<HTMLSpanElement, I> | Used to pass attributes to the root's DOM element. |
-| image | PassThroughOption<HTMLImageElement, I> | Used to pass attributes to the image's DOM element. |
-| previewMask | PassThroughOption<HTMLButtonElement, I> | Used to pass attributes to the preview mask button's DOM element. |
-| previewIcon | PassThroughOption<SVGElement, I> | Used to pass attributes to the preview icon's DOM element. |
-| mask | PassThroughOption<HTMLDivElement, I> | Used to pass attributes to the mask's DOM element. |
-| toolbar | PassThroughOption<HTMLDivElement, I> | Used to pass attributes to the toolbar's DOM element. |
-| rotateRightButton | PassThroughOption<HTMLButtonElement, I> | Used to pass attributes to the rotate right button's DOM element. |
-| rotateLeftButton | PassThroughOption<HTMLButtonElement, I> | Used to pass attributes to the rotate left button's DOM element. |
-| zoomOutButton | PassThroughOption<HTMLButtonElement, I> | Used to pass attributes to the zoom out button's DOM element. |
-| zoomInButton | PassThroughOption<HTMLButtonElement, I> | Used to pass attributes to the zoom in button's DOM element. |
-| closeButton | PassThroughOption<HTMLButtonElement, I> | Used to pass attributes to the close button's DOM element. |
-| original | PassThroughOption<HTMLImageElement, I> | Used to pass attributes to the original/preview image's DOM element. |
-| motion | MotionOptions | Used to pass options to the motion component/directive. |
-| maskMotion | MotionOptions | Used to pass motion options for the mask animation. |
-
-## Theming
-
-### CSS Classes
-
-| Class | Description |
-|-------|-------------|
-| p-image | Class name of the root element |
-| p-image-preview-mask | Class name of the preview mask element |
-| p-image-preview-icon | Class name of the preview icon element |
-| p-image-mask | Class name of the mask element |
-| p-image-toolbar | Class name of the toolbar element |
-| p-image-rotate-right-button | Class name of the rotate right button element |
-| p-image-rotate-left-button | Class name of the rotate left button element |
-| p-image-zoom-out-button | Class name of the zoom out button element |
-| p-image-zoom-in-button | Class name of the zoom in button element |
-| p-image-close-button | Class name of the close button element |
-| p-image-original | Class name of the original element |
-
-### Design Tokens
-
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| image.transition.duration | --p-image-transition-duration | Transition duration of root |
-| image.preview.icon.size | --p-image-preview-icon-size | Icon size of preview |
-| image.preview.mask.background | --p-image-preview-mask-background | Mask background of preview |
-| image.preview.mask.color | --p-image-preview-mask-color | Mask color of preview |
-| image.toolbar.position.left | --p-image-toolbar-position-left | Position left of toolbar |
-| image.toolbar.position.right | --p-image-toolbar-position-right | Position right of toolbar |
-| image.toolbar.position.top | --p-image-toolbar-position-top | Position top of toolbar |
-| image.toolbar.position.bottom | --p-image-toolbar-position-bottom | Position bottom of toolbar |
-| image.toolbar.blur | --p-image-toolbar-blur | Blur of toolbar |
-| image.toolbar.background | --p-image-toolbar-background | Background of toolbar |
-| image.toolbar.border.color | --p-image-toolbar-border-color | Border color of toolbar |
-| image.toolbar.border.width | --p-image-toolbar-border-width | Border width of toolbar |
-| image.toolbar.border.radius | --p-image-toolbar-border-radius | Border radius of toolbar |
-| image.toolbar.padding | --p-image-toolbar-padding | Padding of toolbar |
-| image.toolbar.gap | --p-image-toolbar-gap | Gap of toolbar |
-| image.action.hover.background | --p-image-action-hover-background | Hover background of action |
-| image.action.color | --p-image-action-color | Color of action |
-| image.action.hover.color | --p-image-action-hover-color | Hover color of action |
-| image.action.size | --p-image-action-size | Size of action |
-| image.action.icon.size | --p-image-action-icon-size | Icon size of action |
-| image.action.border.radius | --p-image-action-border-radius | Border radius of action |
-| image.action.focus.ring.width | --p-image-action-focus-ring-width | Focus ring width of action |
-| image.action.focus.ring.style | --p-image-action-focus-ring-style | Focus ring style of action |
-| image.action.focus.ring.color | --p-image-action-focus-ring-color | Focus ring color of action |
-| image.action.focus.ring.offset | --p-image-action-focus-ring-offset | Focus ring offset of action |
-| image.action.focus.ring.shadow | --p-image-action-focus-ring-shadow | Focus ring shadow of action |
-
----
-
 # Angular ImageCompare Component
 
 Compare two images side by side with a slider.
@@ -19765,6 +19592,10 @@ Inplace provides an easy to do editing and display at the same time where clicki
 # Angular InputColor Component
 
 InputColor is a composable color picker component.
+
+## Accessibility
+
+InputColorArea Screen Reader Support aria-label is used to describe the component. aria-roledescription is used to describe the role of the component. aria-valuemin , aria-valuemax , aria-valuenow , aria-valuetext are used to describe the value of the component. Keyboard Support Key Function tab Moves focus to the area thumb. right arrow Moves the area thumb to the right. left arrow Moves the area thumb to the left. up arrow Moves the area thumb to the up. down arrow Moves the area thumb to the down. InputColorSlider Screen Reader Support aria-label is used to describe the component. aria-valuemin , aria-valuemax , aria-valuenow , aria-valuetext are used to describe the value of the component. Keyboard Support Key Function tab Moves focus to the slider thumb. up arrow || left arrow Decrements the slider thumb. down arrow || right arrow Increments the slider thumb.
 
 ## Advanced
 
@@ -20370,16 +20201,12 @@ InputColor is a composable color picker component.
 
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
-| dt | InputSignal<Object> | undefined | Defines scoped design tokens of the component. |
-| unstyled | InputSignal<boolean> | undefined | Indicates whether the component should be rendered without styles. |
-| pt | InputSignal<InputColorPassThrough> | undefined | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | InputSignal<PassThroughOptions> | undefined | Used to configure passthrough(pt) options of the component. |
-| required | InputSignalWithTransform<boolean, unknown> | false | There must be a value (if set). |
-| invalid | InputSignalWithTransform<boolean, unknown> | false | When present, it specifies that the component should have invalid state style. |
-| disabled | InputSignalWithTransform<boolean, unknown> | false | When present, it specifies that the component should have disabled state style. |
-| name | InputSignal<string> | undefined | When present, it specifies that the name of the input. |
-| format | InputSignal<ColorSpace> | ... | Color format/space used internally. |
-| defaultValue | InputSignal<string \| ColorInstance> | ... | Default color value. |
+| dt | Object | undefined | Defines scoped design tokens of the component. |
+| unstyled | boolean | undefined | Indicates whether the component should be rendered without styles. |
+| pt | PassThrough<I, InputColorPassThroughOptions<I>> | undefined | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | PassThroughOptions | undefined | Used to configure passthrough(pt) options of the component. |
+| format | "hsba" \| "hsla" \| "rgba" \| "hexa" \| "oklch" | - | Color format/space used internally. |
+| disabled | boolean | - | When present, it specifies that the component should be disabled. |
 
 ### Emits
 
@@ -20551,6 +20378,30 @@ InputColorTransparencyGrid is a helper component for InputColor component.
 | p-inputcolor-transparency-grid | Class name of the transparency grid element |
 | p-inputcolor-input | Class name of the input element |
 | p-inputcolor-eyedropper | Class name of the eye dropper element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| inputcolor.border.color | --p-inputcolor-border-color | Shared inset border color (area background, slider track, swatch background) |
+| inputcolor.area.border.radius | --p-inputcolor-area-border-radius | Border radius of area |
+| inputcolor.slider.border.radius | --p-inputcolor-slider-border-radius | Border radius of slider |
+| inputcolor.slider.size | --p-inputcolor-slider-size | Size of slider (horizontal height / vertical width) |
+| inputcolor.handle.size | --p-inputcolor-handle-size | Size of handle (area and slider) |
+| inputcolor.handle.border.color | --p-inputcolor-handle-border-color | Border color of handle |
+| inputcolor.handle.border.width | --p-inputcolor-handle-border-width | Border width of handle |
+| inputcolor.handle.shadow | --p-inputcolor-handle-shadow | Shadow of handle |
+| inputcolor.handle.transition.duration | --p-inputcolor-handle-transition-duration | Transition duration of handle |
+| inputcolor.handle.focus.ring.border.width | --p-inputcolor-handle-focus-ring-border-width | Focus ring border width of handle |
+| inputcolor.handle.focus.ring.border.color | --p-inputcolor-handle-focus-ring-border-color | Focus ring border color of handle |
+| inputcolor.handle.focus.ring.outline.width | --p-inputcolor-handle-focus-ring-outline-width | Focus ring outline width of handle |
+| inputcolor.handle.focus.ring.outline.color | --p-inputcolor-handle-focus-ring-outline-color | Focus ring outline color of handle |
+| inputcolor.handle.focus.ring.outline.offset | --p-inputcolor-handle-focus-ring-outline-offset | Focus ring outline offset of handle |
+| inputcolor.transparency.grid.color | --p-inputcolor-transparency-grid-color | Color of transparency grid (checker pattern) |
+| inputcolor.transparency.grid.background | --p-inputcolor-transparency-grid-background | Background of transparency grid (checker base) |
+| inputcolor.transparency.grid.tile.size | --p-inputcolor-transparency-grid-tile-size | Tile size of transparency grid |
+| inputcolor.swatch.size | --p-inputcolor-swatch-size | Size of swatch |
+| inputcolor.swatch.border.radius | --p-inputcolor-swatch-border-radius | Border radius of swatch |
 
 ---
 
@@ -23327,11 +23178,11 @@ export class KnobReactiveFormsDemo {
     getErrorMessage(controlName: string): string | null {
         const control = this.getControl(controlName);
         if (!control || !control.errors) return null;
-
+        
         if (control.errors['min']) {
             return 'Value must be greater than 15.';
         }
-
+        
         if (control.errors['max']) {
             return 'Must be less than 75.';
         }
@@ -23505,7 +23356,7 @@ export class KnobTemplateDrivenFormsDemo {
 
     onSubmit(form: NgForm) {
         this.formSubmitted = true;
-
+        
         if (!this.isInvalid(form.controls['knob'])) {
             this.messageService.add({
                 severity: 'success',
@@ -23513,26 +23364,26 @@ export class KnobTemplateDrivenFormsDemo {
                 detail: 'Form is submitted',
                 life: 3000
             });
-
+        
             form.resetForm({ knob: 15 });
-
+        
             this.formSubmitted = false;
         }
     }
 
     getErrorMessage(control: any): string | null {
         const value = control?.value;
-
+        
         return value < 25 ? 'Value must be greater than 25.' : value > 75 ? 'Must be less than 75.' : null;
     }
 
     isInvalid(control: any): boolean {
         if (!control) return false;
-
+        
         const value = control.value;
-
+        
         const hasError = value < 25 || value > 75;
-
+        
         return hasError && (this.formSubmitted || control.dirty);
     }
 }
@@ -25495,6 +25346,56 @@ export class MenuTemplateDemo implements OnInit {
 }
 ```
 
+## Toggleable
+
+Nested submenus are toggleable by default. Use expanded to control the initial state and toggleable to override the default behavior per item.
+
+**Example:**
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { MenuModule } from 'primeng/menu';
+import { MenuItem } from 'primeng/api';
+
+@Component({
+    template: `
+        <div class="flex justify-center">
+            <p-menu [model]="items" />
+        </div>
+    `,
+    standalone: true,
+    imports: [MenuModule]
+})
+export class MenuToggleableDemo implements OnInit {
+    items: MenuItem[] | undefined;
+
+    ngOnInit() {
+        this.items = [
+            { label: 'Dashboard', icon: 'pi pi-home' },
+            { separator: true },
+            {
+                label: 'Workspace',
+                items: [
+                    { label: 'Analytics', icon: 'pi pi-chart-line' },
+                    {
+                        label: 'Projects',
+                        icon: 'pi pi-folder',
+                        items: [
+                            { label: 'Active Projects', icon: 'pi pi-briefcase' },
+                            { label: 'Recent', icon: 'pi pi-clock' },
+                            { label: 'Favorites', icon: 'pi pi-star' },
+                            { label: 'Completed', icon: 'pi pi-check-circle' }
+                        ]
+                    }
+                ]
+            },
+            { separator: true },
+            { label: 'Help & Support', icon: 'pi pi-question-circle' }
+        ];
+    }
+}
+```
+
 ## Menu
 
 Menu is a navigation / command component that supports dynamic and static positioning.
@@ -25537,6 +25438,7 @@ Menu is a navigation / command component that supports dynamic and static positi
 | end | TemplateRef<void> | Defines template option for end. |
 | item | TemplateRef<MenuItemTemplateContext> | Custom item template. |
 | submenuheader | TemplateRef<MenuSubmenuHeaderTemplateContext> | Custom submenu header template. |
+| submenuicon | TemplateRef<MenuSubmenuHeaderTemplateContext> | Custom submenu toggle icon template. |
 
 ### Methods
 
@@ -25554,6 +25456,7 @@ Menu is a navigation / command component that supports dynamic and static positi
 | start | PassThroughOption<HTMLDivElement, I> | Used to pass attributes to the start's DOM element. |
 | list | PassThroughOption<HTMLUListElement, I> | Used to pass attributes to the list's DOM element. |
 | submenuLabel | PassThroughOption<HTMLLIElement, I> | Used to pass attributes to the submenu label's DOM element. |
+| submenuIcon | PassThroughOption<SVGElement, I> | Used to pass attributes to the submenu icon's DOM element. |
 | separator | PassThroughOption<HTMLLIElement, I> | Used to pass attributes to the separator's DOM element. |
 | item | PassThroughOption<HTMLLIElement, I> | Used to pass attributes to the item's DOM element. |
 | itemContent | PassThroughOption<HTMLDivElement, I> | Used to pass attributes to the item content's DOM element. |
@@ -25580,6 +25483,10 @@ Menu is a navigation / command component that supports dynamic and static positi
 | p-menu-item-link | Class name of the item link element |
 | p-menu-item-icon | Class name of the item icon element |
 | p-menu-item-label | Class name of the item label element |
+| p-menu-submenu | Class name of the submenu element |
+| p-menu-submenu-label | Class name of the submenu label element |
+| p-menu-submenu-icon | Class name of the submenu icon element |
+| p-menu-submenu-list | Class name of the submenu list element |
 
 ### Design Tokens
 
@@ -25609,6 +25516,9 @@ Menu is a navigation / command component that supports dynamic and static positi
 | menu.submenu.label.font.size | --p-menu-submenu-label-font-size | Font size of submenu label |
 | menu.submenu.label.background | --p-menu-submenu-label-background | Background of submenu label |
 | menu.submenu.label.color | --p-menu-submenu-label-color | Color of submenu label |
+| menu.submenu.icon.size | --p-menu-submenu-icon-size | Size of submenu icon |
+| menu.submenu.icon.color | --p-menu-submenu-icon-color | Color of submenu icon |
+| menu.submenu.icon.focus.color | --p-menu-submenu-icon-focus-color | Focus color of submenu icon |
 | menu.separator.border.color | --p-menu-separator-border-color | Border color of separator |
 
 ---
@@ -26278,7 +26188,7 @@ export class MessageLifeDemo {
 
     showMessage() {
         this.visible.set(true);
-
+        
         setTimeout(() => {
             this.visible.set(false);
         }, 3000);
@@ -28850,6 +28760,13 @@ OrganizationChart visualizes hierarchical organization data.
 | organizationchart.node.padding | --p-organizationchart-node-padding | Padding of node |
 | organizationchart.node.toggleable.padding | --p-organizationchart-node-toggleable-padding | Toggleable padding of node |
 | organizationchart.node.border.radius | --p-organizationchart-node-border-radius | Border radius of node |
+| organizationchart.node.font.size | --p-organizationchart-node-font-size | Font size of node |
+| organizationchart.node.font.weight | --p-organizationchart-node-font-weight | Font weight of node |
+| organizationchart.node.focus.ring.width | --p-organizationchart-node-focus-ring-width | Focus ring width of node |
+| organizationchart.node.focus.ring.style | --p-organizationchart-node-focus-ring-style | Focus ring style of node |
+| organizationchart.node.focus.ring.color | --p-organizationchart-node-focus-ring-color | Focus ring color of node |
+| organizationchart.node.focus.ring.offset | --p-organizationchart-node-focus-ring-offset | Focus ring offset of node |
+| organizationchart.node.focus.ring.shadow | --p-organizationchart-node-focus-ring-shadow | Focus ring shadow of node |
 | organizationchart.node.toggle.button.background | --p-organizationchart-node-toggle-button-background | Background of node toggle button |
 | organizationchart.node.toggle.button.hover.background | --p-organizationchart-node-toggle-button-hover-background | Hover background of node toggle button |
 | organizationchart.node.toggle.button.border.color | --p-organizationchart-node-toggle-button-border-color | Border color of node toggle button |
@@ -28862,6 +28779,7 @@ OrganizationChart visualizes hierarchical organization data.
 | organizationchart.node.toggle.button.focus.ring.color | --p-organizationchart-node-toggle-button-focus-ring-color | Focus ring color of node toggle button |
 | organizationchart.node.toggle.button.focus.ring.offset | --p-organizationchart-node-toggle-button-focus-ring-offset | Focus ring offset of node toggle button |
 | organizationchart.node.toggle.button.focus.ring.shadow | --p-organizationchart-node-toggle-button-focus-ring-shadow | Focus ring shadow of node toggle button |
+| organizationchart.node.toggle.button.icon.size | --p-organizationchart-node-toggle-button-icon-size | Icon size of node toggle button |
 | organizationchart.connector.color | --p-organizationchart-connector-color | Color of connector |
 | organizationchart.connector.border.radius | --p-organizationchart-connector-border-radius | Border radius of connector |
 | organizationchart.connector.height | --p-organizationchart-connector-height | Height of connector |
@@ -29592,7 +29510,7 @@ Panel is a container with the optional content toggle feature.
 | Name | Type | Description |
 |------|------|-------------|
 | header | TemplateRef<void> | Defines template option for header. |
-| icon | TemplateRef<void> | Defines template option for icon. |
+| icon | TemplateRef<void> | Defines template option for icons. |
 | content | TemplateRef<void> | Defines template option for content. |
 | footer | TemplateRef<void> | Defines template option for footer. |
 | headericons | TemplateRef<PanelHeaderIconsTemplateContext> | Defines template option for headerIcon. |
@@ -31608,7 +31526,7 @@ export class PopoverDataTableDemo implements OnInit {
         } else {
             this.selectedProduct.set(product);
             this.op.show(event);
-
+        
             if (this.op.container) {
                 this.op.align();
             }
@@ -31623,13 +31541,13 @@ export class PopoverDataTableDemo implements OnInit {
         switch (product.inventoryStatus) {
             case 'INSTOCK':
                 return 'success';
-
+        
             case 'LOWSTOCK':
                 return 'warn';
-
+        
             case 'OUTOFSTOCK':
                 return 'danger';
-
+        
             default:
                 return null;
         }
@@ -32333,7 +32251,7 @@ export class RadioButtonReactiveFormsDemo {
 
     onSubmit() {
         this.formSubmitted = true;
-
+        
         if (this.exampleForm.valid) {
             this.messageService.add({
                 severity: 'success',
@@ -32341,9 +32259,9 @@ export class RadioButtonReactiveFormsDemo {
                 detail: 'Form is submitted',
                 life: 3000
             });
-
+        
             this.exampleForm.reset();
-
+        
             this.formSubmitted = false;
         }
     }
@@ -34202,21 +34120,21 @@ export class SelectLazyVirtualScrollDemo {
 
     onLazyLoad(event) {
         this.loading = true;
-
+        
         if (this.loadLazyTimeout) {
             clearTimeout(this.loadLazyTimeout);
         }
-
+        
         //imitate delay of a backend call
         this.loadLazyTimeout = setTimeout(
             () => {
                 const { first, last } = event;
                 const items = [...this.items];
-
+        
                 for (let i = first; i < last; i++) {
                     items[i] = { label: `Item #${i}`, value: i };
                 }
-
+        
                 this.items = items;
                 this.loading = false;
             },
@@ -38525,7 +38443,7 @@ export class TableColumnGroupDemo implements OnInit {
         for (let sale of this.sales) {
             total += sale.thisYearProfit;
         }
-
+        
         this.thisYearTotal = total;
     }
 }
@@ -39106,16 +39024,16 @@ export class TableCustomersDemo implements OnInit {
         switch (status) {
             case 'unqualified':
                 return 'danger';
-
+        
             case 'qualified':
                 return 'success';
-
+        
             case 'new':
                 return 'info';
-
+        
             case 'negotiation':
                 return 'warn';
-
+        
             case 'renewal':
                 return null;
         }
@@ -39270,7 +39188,7 @@ export class TableExpandableRowGroupDemo implements OnInit {
 
     calculateCustomerTotal(name: string) {
         let total = 0;
-
+        
         if (this.customers) {
             for (let customer of this.customers) {
                 if (customer.representative?.name === name) {
@@ -39278,7 +39196,7 @@ export class TableExpandableRowGroupDemo implements OnInit {
                 }
             }
         }
-
+        
         return total;
     }
 
@@ -39286,16 +39204,16 @@ export class TableExpandableRowGroupDemo implements OnInit {
         switch (status) {
             case 'unqualified':
                 return 'danger';
-
+        
             case 'qualified':
                 return 'success';
-
+        
             case 'new':
                 return 'info';
-
+        
             case 'negotiation':
                 return 'warn';
-
+        
             case 'renewal':
                 return null;
         }
@@ -39595,16 +39513,16 @@ export class TableFilterAdvancedDemo implements OnInit {
         switch (status) {
             case 'unqualified':
                 return 'danger';
-
+        
             case 'qualified':
                 return 'success';
-
+        
             case 'new':
                 return 'info';
-
+        
             case 'negotiation':
                 return 'warn';
-
+        
             case 'renewal':
                 return null;
         }
@@ -39785,16 +39703,16 @@ export class TableFilterBasicDemo implements OnInit {
         switch (status) {
             case 'unqualified':
                 return 'danger';
-
+        
             case 'qualified':
                 return 'success';
-
+        
             case 'new':
                 return 'info';
-
+        
             case 'negotiation':
                 return 'warn';
-
+        
             case 'renewal':
                 return null;
         }
@@ -40033,7 +39951,7 @@ export class TableFrozenRowsDemo implements OnInit {
             this.unlockedCustomers = this.unlockedCustomers.filter((c, i) => i !== index);
             this.lockedCustomers.push(data);
         }
-
+        
         this.unlockedCustomers.sort((val1, val2) => {
             return val1.id < val2.id ? -1 : 1;
         });
@@ -40916,7 +40834,7 @@ export class TableProductsDemo implements OnInit {
                 break;
             }
         }
-
+        
         return index;
     }
 
@@ -40942,7 +40860,7 @@ export class TableProductsDemo implements OnInit {
 
     saveProduct() {
         this.submitted = true;
-
+        
         if (this.product.name?.trim()) {
             if (this.product.id) {
                 this.products[this.findIndexById(this.product.id)] = this.product;
@@ -40964,7 +40882,7 @@ export class TableProductsDemo implements OnInit {
                     life: 3000
                 });
             }
-
+        
             this.products = [...this.products];
             this.productDialog = false;
             this.product = {};
@@ -41122,7 +41040,7 @@ export class TableRemovableSortDemo implements OnInit {
             else if (value1 == null && value2 == null) result = 0;
             else if (typeof value1 === 'string' && typeof value2 === 'string') result = value1.localeCompare(value2);
             else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
-
+        
             return event.order * result;
         });
     }
@@ -41600,7 +41518,7 @@ export class TableRowSpanGroupingDemo implements OnInit {
 
     calculateCustomerTotal(name: string) {
         let total = 0;
-
+        
         if (this.customers) {
             for (let customer of this.customers) {
                 if (customer.representative?.name === name) {
@@ -41608,7 +41526,7 @@ export class TableRowSpanGroupingDemo implements OnInit {
                 }
             }
         }
-
+        
         return total;
     }
 
@@ -41616,16 +41534,16 @@ export class TableRowSpanGroupingDemo implements OnInit {
         switch (status) {
             case 'unqualified':
                 return 'danger';
-
+        
             case 'qualified':
                 return 'success';
-
+        
             case 'new':
                 return 'info';
-
+        
             case 'negotiation':
                 return 'warn';
-
+        
             case 'renewal':
                 return null;
         }
@@ -42242,7 +42160,7 @@ export class TableSubHeaderGroupingDemo implements OnInit {
 
     calculateCustomerTotal(name: string) {
         let total = 0;
-
+        
         if (this.customers) {
             for (let customer of this.customers) {
                 if (customer.representative?.name === name) {
@@ -42250,7 +42168,7 @@ export class TableSubHeaderGroupingDemo implements OnInit {
                 }
             }
         }
-
+        
         return total;
     }
 
@@ -42258,16 +42176,16 @@ export class TableSubHeaderGroupingDemo implements OnInit {
         switch (status) {
             case 'unqualified':
                 return 'danger';
-
+        
             case 'qualified':
                 return 'success';
-
+        
             case 'new':
                 return 'info';
-
+        
             case 'negotiation':
                 return 'warn';
-
+        
             case 'renewal':
                 return null;
         }
@@ -42560,10 +42478,10 @@ export class TableVirtualScrollLazyDemo implements OnInit {
             () => {
                 //load data of required page
                 let loadedCars = this.cars.slice(event.first, event.first + event.rows);
-
+        
                 //populate page of virtual cars
                 Array.prototype.splice.apply(this.virtualCars, [...[event.first, event.rows], ...loadedCars]);
-
+        
                 //trigger change detection
                 event.forceUpdate();
             },
@@ -45237,16 +45155,16 @@ export class ToastHeadlessDemo {
             });
             this.visible = true;
             this.progress.set(0);
-
+        
             if (this.interval) {
                 clearInterval(this.interval);
             }
-
+        
             this.interval = setInterval(() => {
                 if (this.progress() <= 100) {
                     this.progress.update((v) => v + 20);
                 }
-
+        
                 if (this.progress() >= 100) {
                     this.progress.set(100);
                     clearInterval(this.interval);
@@ -45525,15 +45443,15 @@ export class ToastStackDemo {
             summary: sev.charAt(0).toUpperCase() + sev.slice(1),
             detail: 'Toast message content',
             key: 'stack',
-            life: 3000
+            life: 10000
         });
     }
 
     showMultiple() {
         this.messageService.addAll([
-            { severity: 'info', summary: 'Info', detail: 'Message 1', key: 'stack', life: 3000 },
-            { severity: 'success', summary: 'Success', detail: 'Message 2', key: 'stack', life: 3000 },
-            { severity: 'warn', summary: 'Warning', detail: 'Message 3', key: 'stack', life: 3000 }
+            { severity: 'info', summary: 'Info', detail: 'Message 1', key: 'stack', life: 10000 },
+            { severity: 'success', summary: 'Success', detail: 'Message 2', key: 'stack', life: 10000 },
+            { severity: 'warn', summary: 'Warning', detail: 'Message 3', key: 'stack', life: 10000 }
         ]);
     }
 }
@@ -45761,7 +45679,13 @@ Toast is used to display messages in an overlay.
 | toast.border.width | --p-toast-border-width | Border width of root |
 | toast.transition.duration | --p-toast-transition-duration | Transition duration of root |
 | toast.blur | --p-toast-blur | Used to pass tokens of the blur section |
+| toast.focus.ring.width | --p-toast-focus-ring-width | Focus ring width of root |
+| toast.focus.ring.style | --p-toast-focus-ring-style | Focus ring style of root |
+| toast.focus.ring.color | --p-toast-focus-ring-color | Focus ring color of root |
+| toast.focus.ring.offset | --p-toast-focus-ring-offset | Focus ring offset of root |
+| toast.focus.ring.shadow | --p-toast-focus-ring-shadow | Focus ring shadow of root |
 | toast.icon.size | --p-toast-icon-size | Size of icon |
+| toast.icon.margin | --p-toast-icon-margin | Margin of icon |
 | toast.content.padding | --p-toast-content-padding | Padding of content |
 | toast.content.gap | --p-toast-content-gap | Gap of content |
 | toast.text.gap | --p-toast-text-gap | Gap of text |
@@ -45776,6 +45700,14 @@ Toast is used to display messages in an overlay.
 | toast.close.button.focus.ring.style | --p-toast-close-button-focus-ring-style | Focus ring style of close button |
 | toast.close.button.focus.ring.offset | --p-toast-close-button-focus-ring-offset | Focus ring offset of close button |
 | toast.close.icon.size | --p-toast-close-icon-size | Size of close icon |
+| toast.normal.background | --p-toast-normal-background | Background of normal |
+| toast.normal.border.color | --p-toast-normal-border-color | Border color of normal |
+| toast.normal.color | --p-toast-normal-color | Color of normal |
+| toast.normal.detail.color | --p-toast-normal-detail-color | Detail color of normal |
+| toast.normal.shadow | --p-toast-normal-shadow | Shadow of normal |
+| toast.normal.close.button.hover.background | --p-toast-normal-close-button-hover-background | Close button hover background of normal |
+| toast.normal.close.button.focus.ring.color | --p-toast-normal-close-button-focus-ring-color | Close button focus ring color of normal |
+| toast.normal.close.button.focus.ring.shadow | --p-toast-normal-close-button-focus-ring-shadow | Close button focus ring shadow of normal |
 | toast.info.background | --p-toast-info-background | Background of info |
 | toast.info.border.color | --p-toast-info-border-color | Border color of info |
 | toast.info.color | --p-toast-info-color | Color of info |
@@ -47316,19 +47248,19 @@ export class TreeLazyDemo implements OnInit {
     onNodeExpand(event: any) {
         if (!event.node.children) {
             event.node.loading = true;
-
+        
             setTimeout(() => {
                 const _nodes = this.nodes();
                 let _node = { ...event.node };
                 _node.children = [];
-
+        
                 for (let i = 0; i < 3; i++) {
                     _node.children.push({
                         key: event.node.key + '-' + i,
                         label: 'Lazy ' + event.node.label + '-' + i
                     });
                 }
-
+        
                 const key = parseInt(_node.key, 10);
                 _nodes[key] = { ..._node, loading: false };
                 this.nodes.set([..._nodes]);
@@ -48181,19 +48113,19 @@ export class TreeSelectLazyDemo implements OnInit {
     onNodeExpand(event: any) {
         if (!event.node.children) {
             event.node.loading = true;
-
+        
             setTimeout(() => {
                 const _nodes = this.nodes();
                 let _node = { ...event.node };
                 _node.children = [];
-
+        
                 for (let i = 0; i < 3; i++) {
                     _node.children.push({
                         key: event.node.key + '-' + i,
                         label: 'Lazy ' + event.node.label + '-' + i
                     });
                 }
-
+        
                 const key = parseInt(_node.key, 10);
                 _nodes[key] = { ..._node, loading: false };
                 this.nodes.set([..._nodes]);
@@ -49967,10 +49899,10 @@ export class TreeTableLazyLoadDemo implements OnInit {
 
     loadNodes(event: any) {
         this.loading = true;
-
+        
         setTimeout(() => {
             this.files = [];
-
+        
             for (let i = 0; i < event.rows; i++) {
                 let node = {
                     data: {
@@ -49980,7 +49912,7 @@ export class TreeTableLazyLoadDemo implements OnInit {
                     },
                     leaf: false
                 };
-
+        
                 this.files.push(node);
             }
             this.loading = false;
@@ -49990,11 +49922,11 @@ export class TreeTableLazyLoadDemo implements OnInit {
 
     onNodeExpand(event: any) {
         this.loading = true;
-
+        
         setTimeout(() => {
             this.loading = false;
             const node = event.node;
-
+        
             node.children = [
                 {
                     data: {
@@ -50011,7 +49943,7 @@ export class TreeTableLazyLoadDemo implements OnInit {
                     }
                 }
             ];
-
+        
             this.files = [...this.files];
             this.cd.markForCheck();
         }, 250);
@@ -51138,7 +51070,7 @@ export class TreeTableSortRemovableDemo implements OnInit {
             else if (value1 == null && value2 == null) result = 0;
             else if (typeof value1 === 'string' && typeof value2 === 'string') result = value1.localeCompare(value2);
             else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
-
+        
             return event.order * result;
         });
     }

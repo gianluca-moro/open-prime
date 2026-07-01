@@ -1,8 +1,76 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-04-03T07:01:30.519Z",
-  "totalDemos": 830,
+  "generatedAt": "2026-07-01T13:18:51.319Z",
+  "totalDemos": 831,
   "demos": {
+    "Image-template-demo": {
+      "key": "Image-template-demo",
+      "selector": "Image-template-demo",
+      "component": "Image",
+      "section": "template",
+      "code": {
+        "typescript": "import { Component } from '@angular/core';\nimport { ImageModule } from 'primeng/image';\n\n@Component({\n    template: `\n        <div class=\"flex justify-center\">\n            <p-image src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg\" [preview]=\"true\" alt=\"Image\" width=\"250\">\n                <ng-template #indicator>\n                    <i class=\"pi pi-search\"></i>\n                </ng-template>\n                <ng-template #image>\n                    <img src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg\" alt=\"image\" width=\"250\" />\n                </ng-template>\n                <ng-template #preview let-style=\"style\" let-previewCallback=\"previewCallback\">\n                    <img src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg\" alt=\"image\" [style]=\"style\" (click)=\"previewCallback()\" />\n                </ng-template>\n            </p-image>\n        </div>\n    `,\n    standalone: true,\n    imports: [ImageModule]\n})\nexport class ImageTemplateDemo {}"
+      },
+      "metadata": {
+        "services": [],
+        "primeNGServices": [],
+        "extFiles": [],
+        "imports": [
+          "ImageModule"
+        ]
+      }
+    },
+    "Image-preview-image-source-demo": {
+      "key": "Image-preview-image-source-demo",
+      "selector": "Image-preview-image-source-demo",
+      "component": "Image",
+      "section": "previewimagesource",
+      "code": {
+        "typescript": "import { Component } from '@angular/core';\nimport { ImageModule } from 'primeng/image';\n\n@Component({\n    template: `\n        <div class=\"flex justify-center\">\n            <p-image src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg\" previewImageSrc=\"https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg\" alt=\"Image\" width=\"250\" [preview]=\"true\" />\n        </div>\n    `,\n    standalone: true,\n    imports: [ImageModule]\n})\nexport class ImagePreviewImageSourceDemo {}"
+      },
+      "metadata": {
+        "services": [],
+        "primeNGServices": [],
+        "extFiles": [],
+        "imports": [
+          "ImageModule"
+        ]
+      }
+    },
+    "Image-preview-demo": {
+      "key": "Image-preview-demo",
+      "selector": "Image-preview-demo",
+      "component": "Image",
+      "section": "preview",
+      "code": {
+        "typescript": "import { Component } from '@angular/core';\nimport { ImageModule } from 'primeng/image';\n\n@Component({\n    template: `\n        <div class=\"flex justify-center\">\n            <p-image src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria10.jpg\" alt=\"Image\" width=\"250\" [preview]=\"true\" />\n        </div>\n    `,\n    standalone: true,\n    imports: [ImageModule]\n})\nexport class ImagePreviewDemo {}"
+      },
+      "metadata": {
+        "services": [],
+        "primeNGServices": [],
+        "extFiles": [],
+        "imports": [
+          "ImageModule"
+        ]
+      }
+    },
+    "Image-basic-demo": {
+      "key": "Image-basic-demo",
+      "selector": "Image-basic-demo",
+      "component": "Image",
+      "section": "basic",
+      "code": {
+        "typescript": "import { Component } from '@angular/core';\nimport { ImageModule } from 'primeng/image';\n\n@Component({\n    template: `\n        <div class=\"flex justify-center\">\n            <p-image src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria10.jpg\" alt=\"Image\" width=\"250\" />\n        </div>\n    `,\n    standalone: true,\n    imports: [ImageModule]\n})\nexport class ImageBasicDemo {}"
+      },
+      "metadata": {
+        "services": [],
+        "primeNGServices": [],
+        "extFiles": [],
+        "imports": [
+          "ImageModule"
+        ]
+      }
+    },
     "accordion-template-demo": {
       "key": "accordion-template-demo",
       "selector": "accordion-template-demo",
@@ -5199,74 +5267,6 @@
         ]
       }
     },
-    "image-template-demo": {
-      "key": "image-template-demo",
-      "selector": "image-template-demo",
-      "component": "image",
-      "section": "template",
-      "code": {
-        "typescript": "import { Component } from '@angular/core';\nimport { ImageModule } from 'primeng/image';\n\n@Component({\n    template: `\n        <div class=\"flex justify-center\">\n            <p-image src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg\" [preview]=\"true\" alt=\"Image\" width=\"250\">\n                <ng-template #indicator>\n                    <i class=\"pi pi-search\"></i>\n                </ng-template>\n                <ng-template #image>\n                    <img src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg\" alt=\"image\" width=\"250\" />\n                </ng-template>\n                <ng-template #preview let-style=\"style\" let-previewCallback=\"previewCallback\">\n                    <img src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg\" alt=\"image\" [style]=\"style\" (click)=\"previewCallback()\" />\n                </ng-template>\n            </p-image>\n        </div>\n    `,\n    standalone: true,\n    imports: [ImageModule]\n})\nexport class ImageTemplateDemo {}"
-      },
-      "metadata": {
-        "services": [],
-        "primeNGServices": [],
-        "extFiles": [],
-        "imports": [
-          "ImageModule"
-        ]
-      }
-    },
-    "image-preview-image-source-demo": {
-      "key": "image-preview-image-source-demo",
-      "selector": "image-preview-image-source-demo",
-      "component": "image",
-      "section": "previewimagesource",
-      "code": {
-        "typescript": "import { Component } from '@angular/core';\nimport { ImageModule } from 'primeng/image';\n\n@Component({\n    template: `\n        <div class=\"flex justify-center\">\n            <p-image src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg\" previewImageSrc=\"https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg\" alt=\"Image\" width=\"250\" [preview]=\"true\" />\n        </div>\n    `,\n    standalone: true,\n    imports: [ImageModule]\n})\nexport class ImagePreviewImageSourceDemo {}"
-      },
-      "metadata": {
-        "services": [],
-        "primeNGServices": [],
-        "extFiles": [],
-        "imports": [
-          "ImageModule"
-        ]
-      }
-    },
-    "image-preview-demo": {
-      "key": "image-preview-demo",
-      "selector": "image-preview-demo",
-      "component": "image",
-      "section": "preview",
-      "code": {
-        "typescript": "import { Component } from '@angular/core';\nimport { ImageModule } from 'primeng/image';\n\n@Component({\n    template: `\n        <div class=\"flex justify-center\">\n            <p-image src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria10.jpg\" alt=\"Image\" width=\"250\" [preview]=\"true\" />\n        </div>\n    `,\n    standalone: true,\n    imports: [ImageModule]\n})\nexport class ImagePreviewDemo {}"
-      },
-      "metadata": {
-        "services": [],
-        "primeNGServices": [],
-        "extFiles": [],
-        "imports": [
-          "ImageModule"
-        ]
-      }
-    },
-    "image-basic-demo": {
-      "key": "image-basic-demo",
-      "selector": "image-basic-demo",
-      "component": "image",
-      "section": "basic",
-      "code": {
-        "typescript": "import { Component } from '@angular/core';\nimport { ImageModule } from 'primeng/image';\n\n@Component({\n    template: `\n        <div class=\"flex justify-center\">\n            <p-image src=\"https://primefaces.org/cdn/primeng/images/galleria/galleria10.jpg\" alt=\"Image\" width=\"250\" />\n        </div>\n    `,\n    standalone: true,\n    imports: [ImageModule]\n})\nexport class ImageBasicDemo {}"
-      },
-      "metadata": {
-        "services": [],
-        "primeNGServices": [],
-        "extFiles": [],
-        "imports": [
-          "ImageModule"
-        ]
-      }
-    },
     "imagecompare-responsive-demo": {
       "key": "imagecompare-responsive-demo",
       "selector": "imagecompare-responsive-demo",
@@ -7340,6 +7340,23 @@
         "primeNGServices": [],
         "extFiles": [],
         "imports": []
+      }
+    },
+    "menu-toggleable-demo": {
+      "key": "menu-toggleable-demo",
+      "selector": "menu-toggleable-demo",
+      "component": "menu",
+      "section": "toggleable",
+      "code": {
+        "typescript": "import { Component, OnInit } from '@angular/core';\nimport { MenuModule } from 'primeng/menu';\nimport { MenuItem } from 'primeng/api';\n\n@Component({\n    template: `\n        <div class=\"flex justify-center\">\n            <p-menu [model]=\"items\" />\n        </div>\n    `,\n    standalone: true,\n    imports: [MenuModule]\n})\nexport class MenuToggleableDemo implements OnInit {\n    items: MenuItem[] | undefined;\n\n    ngOnInit() {\n        this.items = [\n            { label: 'Dashboard', icon: 'pi pi-home' },\n            { separator: true },\n            {\n                label: 'Workspace',\n                items: [\n                    { label: 'Analytics', icon: 'pi pi-chart-line' },\n                    {\n                        label: 'Projects',\n                        icon: 'pi pi-folder',\n                        items: [\n                            { label: 'Active Projects', icon: 'pi pi-briefcase' },\n                            { label: 'Recent', icon: 'pi pi-clock' },\n                            { label: 'Favorites', icon: 'pi pi-star' },\n                            { label: 'Completed', icon: 'pi pi-check-circle' }\n                        ]\n                    }\n                ]\n            },\n            { separator: true },\n            { label: 'Help & Support', icon: 'pi pi-question-circle' }\n        ];\n    }\n}"
+      },
+      "metadata": {
+        "services": [],
+        "primeNGServices": [],
+        "extFiles": [],
+        "imports": [
+          "MenuModule"
+        ]
       }
     },
     "menu-template-demo": {
@@ -13645,7 +13662,7 @@
       "component": "toast",
       "section": "stack",
       "code": {
-        "typescript": "import { Component, inject } from '@angular/core';\nimport { ButtonModule } from 'primeng/button';\nimport { ToastModule } from 'primeng/toast';\nimport { MessageService } from 'primeng/api';\n\n@Component({\n    template: `\n        <p-toast key=\"stack\" mode=\"stack\" />\n        <div class=\"flex justify-center gap-2\">\n            <p-button (onClick)=\"show()\" label=\"Show\" />\n            <p-button (onClick)=\"showMultiple()\" label=\"Multiple\" severity=\"secondary\" />\n        </div>\n    `,\n    standalone: true,\n    imports: [ButtonModule, ToastModule],\n    providers: [MessageService]\n})\nexport class ToastStackDemo {\n    private messageService = inject(MessageService);\n\n    show() {\n        const sev = this.severities[this.counter++ % this.severities.length];\n        this.messageService.add({\n            severity: sev,\n            summary: sev.charAt(0).toUpperCase() + sev.slice(1),\n            detail: 'Toast message content',\n            key: 'stack',\n            life: 3000\n        });\n    }\n\n    showMultiple() {\n        this.messageService.addAll([\n            { severity: 'info', summary: 'Info', detail: 'Message 1', key: 'stack', life: 3000 },\n            { severity: 'success', summary: 'Success', detail: 'Message 2', key: 'stack', life: 3000 },\n            { severity: 'warn', summary: 'Warning', detail: 'Message 3', key: 'stack', life: 3000 }\n        ]);\n    }\n}"
+        "typescript": "import { Component, inject } from '@angular/core';\nimport { ButtonModule } from 'primeng/button';\nimport { ToastModule } from 'primeng/toast';\nimport { MessageService } from 'primeng/api';\n\n@Component({\n    template: `\n        <p-toast key=\"stack\" mode=\"stack\" />\n        <div class=\"flex justify-center gap-2\">\n            <p-button (onClick)=\"show()\" label=\"Show\" />\n            <p-button (onClick)=\"showMultiple()\" label=\"Multiple\" severity=\"secondary\" />\n        </div>\n    `,\n    standalone: true,\n    imports: [ButtonModule, ToastModule],\n    providers: [MessageService]\n})\nexport class ToastStackDemo {\n    private messageService = inject(MessageService);\n\n    show() {\n        const sev = this.severities[this.counter++ % this.severities.length];\n        this.messageService.add({\n            severity: sev,\n            summary: sev.charAt(0).toUpperCase() + sev.slice(1),\n            detail: 'Toast message content',\n            key: 'stack',\n            life: 10000\n        });\n    }\n\n    showMultiple() {\n        this.messageService.addAll([\n            { severity: 'info', summary: 'Info', detail: 'Message 1', key: 'stack', life: 10000 },\n            { severity: 'success', summary: 'Success', detail: 'Message 2', key: 'stack', life: 10000 },\n            { severity: 'warn', summary: 'Warning', detail: 'Message 3', key: 'stack', life: 10000 }\n        ]);\n    }\n}"
       },
       "metadata": {
         "services": [],

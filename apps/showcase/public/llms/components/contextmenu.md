@@ -559,6 +559,11 @@ ContextMenu displays an overlay menu on right click of its target. Note that com
 | contextmenu.item.label.font.weight | --p-contextmenu-item-label-font-weight | Font weight of item label |
 | contextmenu.item.label.font.size | --p-contextmenu-item-label-font-size | Font size of item label |
 | contextmenu.submenu.mobile.indent | --p-contextmenu-submenu-mobile-indent | Mobile indent of submenu |
+| contextmenu.submenu.label.padding | --p-contextmenu-submenu-label-padding | Padding of submenu label |
+| contextmenu.submenu.label.font.weight | --p-contextmenu-submenu-label-font-weight | Font weight of submenu label |
+| contextmenu.submenu.label.font.size | --p-contextmenu-submenu-label-font-size | Font size of submenu label |
+| contextmenu.submenu.label.background | --p-contextmenu-submenu-label-background | Background of submenu label |
+| contextmenu.submenu.label.color | --p-contextmenu-submenu-label-color | Color of submenu label |
 | contextmenu.submenu.icon.size | --p-contextmenu-submenu-icon-size | Size of submenu icon |
 | contextmenu.submenu.icon.color | --p-contextmenu-submenu-icon-color | Color of submenu icon |
 | contextmenu.submenu.icon.focus.color | --p-contextmenu-submenu-icon-focus-color | Focus color of submenu icon |

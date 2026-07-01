@@ -369,6 +369,54 @@ export class MenuTemplateDemo implements OnInit {
 }
 ```
 
+## Toggleable
+
+Nested submenus are toggleable by default. Use expanded to control the initial state and toggleable to override the default behavior per item.
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { MenuModule } from 'primeng/menu';
+import { MenuItem } from 'primeng/api';
+
+@Component({
+    template: `
+        <div class="flex justify-center">
+            <p-menu [model]="items" />
+        </div>
+    `,
+    standalone: true,
+    imports: [MenuModule]
+})
+export class MenuToggleableDemo implements OnInit {
+    items: MenuItem[] | undefined;
+
+    ngOnInit() {
+        this.items = [
+            { label: 'Dashboard', icon: 'pi pi-home' },
+            { separator: true },
+            {
+                label: 'Workspace',
+                items: [
+                    { label: 'Analytics', icon: 'pi pi-chart-line' },
+                    {
+                        label: 'Projects',
+                        icon: 'pi pi-folder',
+                        items: [
+                            { label: 'Active Projects', icon: 'pi pi-briefcase' },
+                            { label: 'Recent', icon: 'pi pi-clock' },
+                            { label: 'Favorites', icon: 'pi pi-star' },
+                            { label: 'Completed', icon: 'pi pi-check-circle' }
+                        ]
+                    }
+                ]
+            },
+            { separator: true },
+            { label: 'Help & Support', icon: 'pi pi-question-circle' }
+        ];
+    }
+}
+```
+
 ## Menu
 
 Menu is a navigation / command component that supports dynamic and static positioning.
@@ -411,6 +459,7 @@ Menu is a navigation / command component that supports dynamic and static positi
 | end | TemplateRef<void> | Defines template option for end. |
 | item | TemplateRef<MenuItemTemplateContext> | Custom item template. |
 | submenuheader | TemplateRef<MenuSubmenuHeaderTemplateContext> | Custom submenu header template. |
+| submenuicon | TemplateRef<MenuSubmenuHeaderTemplateContext> | Custom submenu toggle icon template. |
 
 ### Methods
 
@@ -428,6 +477,7 @@ Menu is a navigation / command component that supports dynamic and static positi
 | start | PassThroughOption<HTMLDivElement, I> | Used to pass attributes to the start's DOM element. |
 | list | PassThroughOption<HTMLUListElement, I> | Used to pass attributes to the list's DOM element. |
 | submenuLabel | PassThroughOption<HTMLLIElement, I> | Used to pass attributes to the submenu label's DOM element. |
+| submenuIcon | PassThroughOption<SVGElement, I> | Used to pass attributes to the submenu icon's DOM element. |
 | separator | PassThroughOption<HTMLLIElement, I> | Used to pass attributes to the separator's DOM element. |
 | item | PassThroughOption<HTMLLIElement, I> | Used to pass attributes to the item's DOM element. |
 | itemContent | PassThroughOption<HTMLDivElement, I> | Used to pass attributes to the item content's DOM element. |
@@ -454,6 +504,10 @@ Menu is a navigation / command component that supports dynamic and static positi
 | p-menu-item-link | Class name of the item link element |
 | p-menu-item-icon | Class name of the item icon element |
 | p-menu-item-label | Class name of the item label element |
+| p-menu-submenu | Class name of the submenu element |
+| p-menu-submenu-label | Class name of the submenu label element |
+| p-menu-submenu-icon | Class name of the submenu icon element |
+| p-menu-submenu-list | Class name of the submenu list element |
 
 ### Design Tokens
 
@@ -483,5 +537,8 @@ Menu is a navigation / command component that supports dynamic and static positi
 | menu.submenu.label.font.size | --p-menu-submenu-label-font-size | Font size of submenu label |
 | menu.submenu.label.background | --p-menu-submenu-label-background | Background of submenu label |
 | menu.submenu.label.color | --p-menu-submenu-label-color | Color of submenu label |
+| menu.submenu.icon.size | --p-menu-submenu-icon-size | Size of submenu icon |
+| menu.submenu.icon.color | --p-menu-submenu-icon-color | Color of submenu icon |
+| menu.submenu.icon.focus.color | --p-menu-submenu-icon-focus-color | Focus color of submenu icon |
 | menu.separator.border.color | --p-menu-separator-border-color | Border color of separator |
 

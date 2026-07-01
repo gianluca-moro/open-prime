@@ -403,15 +403,15 @@ export class ToastStackDemo {
             summary: sev.charAt(0).toUpperCase() + sev.slice(1),
             detail: 'Toast message content',
             key: 'stack',
-            life: 3000
+            life: 10000
         });
     }
 
     showMultiple() {
         this.messageService.addAll([
-            { severity: 'info', summary: 'Info', detail: 'Message 1', key: 'stack', life: 3000 },
-            { severity: 'success', summary: 'Success', detail: 'Message 2', key: 'stack', life: 3000 },
-            { severity: 'warn', summary: 'Warning', detail: 'Message 3', key: 'stack', life: 3000 }
+            { severity: 'info', summary: 'Info', detail: 'Message 1', key: 'stack', life: 10000 },
+            { severity: 'success', summary: 'Success', detail: 'Message 2', key: 'stack', life: 10000 },
+            { severity: 'warn', summary: 'Warning', detail: 'Message 3', key: 'stack', life: 10000 }
         ]);
     }
 }
@@ -633,7 +633,13 @@ Toast is used to display messages in an overlay.
 | toast.border.width | --p-toast-border-width | Border width of root |
 | toast.transition.duration | --p-toast-transition-duration | Transition duration of root |
 | toast.blur | --p-toast-blur | Used to pass tokens of the blur section |
+| toast.focus.ring.width | --p-toast-focus-ring-width | Focus ring width of root |
+| toast.focus.ring.style | --p-toast-focus-ring-style | Focus ring style of root |
+| toast.focus.ring.color | --p-toast-focus-ring-color | Focus ring color of root |
+| toast.focus.ring.offset | --p-toast-focus-ring-offset | Focus ring offset of root |
+| toast.focus.ring.shadow | --p-toast-focus-ring-shadow | Focus ring shadow of root |
 | toast.icon.size | --p-toast-icon-size | Size of icon |
+| toast.icon.margin | --p-toast-icon-margin | Margin of icon |
 | toast.content.padding | --p-toast-content-padding | Padding of content |
 | toast.content.gap | --p-toast-content-gap | Gap of content |
 | toast.text.gap | --p-toast-text-gap | Gap of text |
@@ -648,6 +654,14 @@ Toast is used to display messages in an overlay.
 | toast.close.button.focus.ring.style | --p-toast-close-button-focus-ring-style | Focus ring style of close button |
 | toast.close.button.focus.ring.offset | --p-toast-close-button-focus-ring-offset | Focus ring offset of close button |
 | toast.close.icon.size | --p-toast-close-icon-size | Size of close icon |
+| toast.normal.background | --p-toast-normal-background | Background of normal |
+| toast.normal.border.color | --p-toast-normal-border-color | Border color of normal |
+| toast.normal.color | --p-toast-normal-color | Color of normal |
+| toast.normal.detail.color | --p-toast-normal-detail-color | Detail color of normal |
+| toast.normal.shadow | --p-toast-normal-shadow | Shadow of normal |
+| toast.normal.close.button.hover.background | --p-toast-normal-close-button-hover-background | Close button hover background of normal |
+| toast.normal.close.button.focus.ring.color | --p-toast-normal-close-button-focus-ring-color | Close button focus ring color of normal |
+| toast.normal.close.button.focus.ring.shadow | --p-toast-normal-close-button-focus-ring-shadow | Close button focus ring shadow of normal |
 | toast.info.background | --p-toast-info-background | Background of info |
 | toast.info.border.color | --p-toast-info-border-color | Border color of info |
 | toast.info.color | --p-toast-info-color | Color of info |
